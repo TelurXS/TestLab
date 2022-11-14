@@ -1,19 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@using TestLab.Entities.Pagination;
+@using TestLab.Entities;
+@model PagenableCollection<Post>;
+@{
+    ViewData["Title"] = "News";
 }
 
 <div class="text-center">
-    <h1>Index</h1>
-</div> 
-
-<div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown link
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="/home">Action</a>
-        <a class="dropdown-item" href="/news">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-    </div>
+    <h1>News</h1>
 </div>
+
+@await Component.InvokeAsync("PaginationCountSelector", Model.ViewModel )
+
+<div class="d-flex flex-wrap justify-content-around align-content-around">
+
+    @foreach (Post post in Model.GetByCurrentPage())
+    {
+        <div class="card mb-4" style="width: 18rem;">
+            <img class="card-img-top" src="@post.Image" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@post.Title</h5>
+                <p class="card-text">@post.Description</p>
+                <p class="text-muted">@post.ReleaseDate</p>
+                <a href="/news/post?id=@post.Id" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    }
+
+</div>
+
+@await Component.InvokeAsync("Pagination", Model.ViewModel )

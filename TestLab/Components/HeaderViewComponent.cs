@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using TestLab.DataBase;
+using TestLab.Entities;
 
 namespace TestLab.Components
 {
@@ -6,7 +9,10 @@ namespace TestLab.Components
     {
         public IViewComponentResult Invoke()
         {
-            return View("Header");
+            IEnumerable<INavigation> navigations
+                = new Navigations(new TestLabContext()).AssignChildrens();
+
+            return View("Header", navigations);
         }
     }
 }
