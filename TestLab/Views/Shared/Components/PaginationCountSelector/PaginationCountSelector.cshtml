@@ -1,12 +1,12 @@
 ﻿@model PaginationViewModel
 
 <div class="d-flex justify-content-center align-items-center mb-4">
-    <span class="btn btn-secondary mr-3">Count per page:</span>
+    <span class="mr-3">Count:</span>
     <select class="custom-select w-50" id="countSelector">
 
         @foreach (int option in Model.PossibleCounts)
         {
-            if (option == Model.PostsPerPage)
+            if (option == Model.CountPerPage)
             {
                 <option value="@option" selected>@option</option>
             }

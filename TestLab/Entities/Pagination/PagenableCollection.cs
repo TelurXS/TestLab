@@ -30,8 +30,8 @@ namespace TestLab.Entities.Pagination
                 FirstPage = FirstPage, 
                 LastPage = LastPage, 
                 CurrentPage = CurrentPage, 
-                Pages = Pages, 
-                PostsPerPage = CountPerPage, 
+                Pages = Pages,
+                CountPerPage = CountPerPage, 
                 PossibleCounts = new List<int> { 9, 6, 3, 20, 50 }
             };
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using TestLab.Entities.Pagination;
 
 namespace TestLab.Entities
@@ -26,6 +27,6 @@ namespace TestLab.Entities
         [DataType(DataType.DateTime)] 
         public DateTime ReleaseDate { get; set; }
 
-        public int State { get; set; }
+        public PostState State { get; set; }
     }
 }

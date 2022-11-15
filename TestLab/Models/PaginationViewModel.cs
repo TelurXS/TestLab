@@ -7,7 +7,7 @@ namespace TestLab.Models
         public int CurrentPage { get; set; }
         public IEnumerable<int> Pages { get; set; }
 
-        public int PostsPerPage { get; set; }
+        public int CountPerPage { get; set; }
         public IEnumerable<int> PossibleCounts { get; set; }
 
         public int FirstPage { get; set; }
