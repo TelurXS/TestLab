@@ -2,11 +2,19 @@
 @using TestLab.Entities;
 @model PaginationViewModel
 
+@if (Model.Pages.Count() <= 1) return;
+
 <nav class="d-flex justify-content-center">
     <ul class="pagination">
         <li class="page-item">
             <a class="page-link" href="?page=@Model.FirstPage&count=@Model.CountPerPage">
                 <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Start</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page=@Model.PreviousPage&count=@Model.CountPerPage">
+                <span aria-hidden="true">&lsaquo;</span>
                 <span class="sr-only">Previous</span>
             </a>
         </li>
@@ -28,9 +36,15 @@
         }
 
         <li class="page-item">
+            <a class="page-link" href="?page=@Model.NextPage&count=@Model.CountPerPage">
+                <span aria-hidden="true">&rsaquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+        <li class="page-item">
             <a class="page-link" href="?page=@Model.LastPage&count=@Model.CountPerPage">
                 <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">End</span>
             </a>
         </li>
     </ul>

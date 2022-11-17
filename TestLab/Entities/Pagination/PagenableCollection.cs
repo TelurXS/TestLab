@@ -23,12 +23,18 @@ namespace TestLab.Entities.Pagination
         public int LastPage => PageCount;
         public int PageCount =>
             (int)Math.Round(Items.Count() / (float)CountPerPage, MidpointRounding.ToPositiveInfinity);
+        public int NextPage =>
+            Math.Clamp(CurrentPage + 1, 1, PageCount);
+        public int PreviousPage =>
+            Math.Clamp(CurrentPage - 1, 1, PageCount);
 
         public PaginationViewModel ViewModel =>
             new PaginationViewModel 
             { 
                 FirstPage = FirstPage, 
                 LastPage = LastPage, 
+                NextPage = NextPage, 
+                PreviousPage = PreviousPage, 
                 CurrentPage = CurrentPage, 
                 Pages = Pages,
                 CountPerPage = CountPerPage, 

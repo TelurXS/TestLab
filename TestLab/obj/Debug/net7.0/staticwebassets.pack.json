@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\forms.css",
+      "PackagePath": "staticwebassets\\css\\forms.css"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -17,8 +25,16 @@
       "PackagePath": "staticwebassets\\img\\news.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\PaginationCountSelector.js",
-      "PackagePath": "staticwebassets\\js\\PaginationCountSelector.js"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\copy-button.js",
+      "PackagePath": "staticwebassets\\js\\copy-button.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\pagination-count-selector.js",
+      "PackagePath": "staticwebassets\\js\\pagination-count-selector.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\prevent-default-form.js",
+      "PackagePath": "staticwebassets\\js\\prevent-default-form.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\site.js",
