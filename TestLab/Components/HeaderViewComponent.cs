@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TestLab.DataBase;
 using TestLab.Entities;
+using TestLab.Models;
 
 namespace TestLab.Components
 {
@@ -12,7 +13,13 @@ namespace TestLab.Components
             IEnumerable<INavigation> navigations
                 = new Navigations(new TestLabContext()).AssignChildrens();
 
-            return View("Header", navigations);
+            HeaderViewModel model = new HeaderViewModel
+            {
+                Navigations = navigations,
+                User = User.Identity,
+            };
+
+            return View("Header", model);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿
+﻿using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace TestLab.Utils.Validation
 {
     public class TextValidator : Validator<string, TextValidator>
@@ -50,6 +53,16 @@ namespace TestLab.Utils.Validation
             if (IsInvalid)
             {
                 Message = message;
+            }
+
+            return this;
+        }
+
+        public override TextValidator Execute(bool expression)
+        {
+            if (IsValid)
+            {
+                Result = Check(expression, $"{Name} error");
             }
 
             return this;

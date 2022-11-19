@@ -54,5 +54,16 @@
 
             return this;
         }
+
+        public override IntValidator Execute(bool expression)
+        {
+            if (IsValid)
+            {
+                Result = Check(expression, $"{Name} error");
+            }
+
+            return this;
+        }
+
     }
 }

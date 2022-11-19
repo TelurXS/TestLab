@@ -1,18 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Login";
 }
+@model FormViewModel
 
 <link href="~/css/forms.css" rel="stylesheet" />
 
 <div class="text-center form-holder">
-    <form class="form">
+    <form class="form" asp-controller="account" asp-action="login" method="post">
+
         <img class="mb-4" src="~/img/logo.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-        <div class="form-inputs">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        @if (Model?.HasMessage == true)
+        {
+            <div class="alert alert-danger">
+                @Model.Message
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
 
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="form-inputs">
+            <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required autofocus>
+
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
         </div>
 
         <div class="checkbox mb-3">

@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\img\\news.png"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\profile.jpg",
+      "PackagePath": "staticwebassets\\img\\profile.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\sad-cat.jpg",
+      "PackagePath": "staticwebassets\\img\\sad-cat.jpg"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\copy-button.js",
       "PackagePath": "staticwebassets\\js\\copy-button.js"
     },

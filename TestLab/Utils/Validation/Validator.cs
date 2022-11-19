@@ -1,4 +1,5 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+﻿
+using System.Collections;
 
 namespace TestLab.Utils.Validation
 {
@@ -20,6 +21,7 @@ namespace TestLab.Utils.Validation
         public abstract TValidator Max(int value);
         public abstract TValidator Match(T value);
         public abstract TValidator ErrorMessage(string message);
+        public abstract TValidator Execute(bool expression);
 
         public virtual bool Check(bool expression, string message) 
         {

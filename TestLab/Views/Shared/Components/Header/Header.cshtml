@@ -1,5 +1,4 @@
-﻿@model IEnumerable<INavigation>
-@using TestLab.Entities;
+﻿@model HeaderViewModel;
 
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -15,7 +14,7 @@
 
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 <ul class="navbar-nav flex-grow-1">
-                    @foreach (INavigation item in Model)
+                    @foreach (INavigation item in Model.Navigations)
                     {
                         if (item is NavigationGroup group && group.HasChilds)
                         {
@@ -28,7 +27,6 @@
                                     @foreach (INavigation child in group.Childrens)
                                     {
                                         <a class="dropdown-item" href="@child.Href">@child.Title</a>
-                                        //<div class="dropdown-divider"></div>
                                     }
 
                                 </div>
@@ -47,12 +45,19 @@
                             Account
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/account/profile">Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/account/login">Login</a>
-                            <a class="dropdown-item" href="/account/registration">Registration</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/account/signout">Sign Out</a>
+
+                            @if (Model.User.IsAuthenticated)
+                            {
+                                <a class="dropdown-item" href="/account/myprofile">Profile <span class="text-muted">(@Model.User.Name)</span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/account/signout">Sign Out</a>
+                            }
+                            else
+                            {
+                                <a class="dropdown-item" href="/account/login">Login</a>
+                                <a class="dropdown-item" href="/account/registration">Registration</a>
+                            }
+
                         </div>
                     </li>
                 </ul>
