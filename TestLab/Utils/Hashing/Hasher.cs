@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System;
 
-namespace TestLab.Utils
+namespace TestLab.Utils.Hashing
 {
-    public sealed class Hasher
+    public sealed class Hasher : IHasher
     {
         private const int SALT_SIZE = 16;
         private const int HASH_SIZE = 20;

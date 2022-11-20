@@ -5,17 +5,17 @@ namespace TestLab.Utils.Validation
 {
     public abstract class Validator<T, TValidator>
     {
-        public T Value { get; protected set; }
-        public string Name { get; protected set; }
-        public bool Result { get; protected set; }
-        public string Message { get; protected set; }
-
         public Validator(T value, string name)
         {
             Value = value;
             Name = name;
             Result = value is not null;
         }
+
+        public T Value { get; protected set; }
+        public string Name { get; protected set; }
+        public bool Result { get; protected set; }
+        public string Message { get; protected set; }
 
         public abstract TValidator Min(int value);
         public abstract TValidator Max(int value);

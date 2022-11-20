@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Profile";
 }
-@model Account;
+@using TestLab.Utils;
+@model ProfileViewModel;
 
 <section>
     <div class="row">
@@ -11,8 +12,8 @@
                     <img src="@Model.ProfileImage" alt="avatar"
                          class="rounded-circle img-fluid" style="width: 150px;">
                     <h5 class="my-3">@Model.Name</h5>
-                    <p class="text-muted mb-1">Description</p>
-                    <p class="text-muted mb-4">Address</p>
+                    <p class="text-muted mb-1">@Model.Login</p>
+                    <p class="text-muted mb-4">@Model.Description</p>
                     <div class="d-flex justify-content-center mb-2">
                         <button type="button" class="btn btn-outline-primary m-1">Change Image</button>
                     </div>
@@ -52,50 +53,79 @@
         <div class="col-lg-8">
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Full Name</p>
+
+                    @if (Model?.HasMessage == true)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            @Model.Message
+                            <button type="button" class="close small" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">Johnatan Smith</p>
+                    }
+
+                    <form asp-controller="account" asp-action="changeaccountinfo" method="post">
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0 mt-2">Full Name</p></div>
+                            <div class="col-sm-9">
+                                <input type="text" name="name" class="text-muted m-0 form-control" value="@Model.Name">
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Email</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0 mt-2">Description</p></div>
+                            <div class="col-sm-9">
+                                <input type="text" name="description" class="text-muted m-0 form-control" value="@Model.Description">
+                            </div>
                         </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">example@example.com</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0 mt-2">Email</p></div>
+                            <div class="col-sm-9">
+                                <input type="email" name="email" class="text-muted mb-0 form-control" value="@Model.Email">
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Phone</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0 mt-2">Phone</p></div>
+                            <div class="col-sm-9">
+                                <input type="tel" name="phone" class="text-muted m-0 form-control" value="@Model.Phone">
+                            </div>
                         </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">(097) 234-5678</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0 mt-2">Address</p></div>
+                            <div class="col-sm-9">
+                                <input type="text" name="address" class="text-muted m-0 form-control" value="@Model.Address">
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Mobile</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0 mt-2">Birth Date</p></div>
+                            <div class="col-sm-9">
+                                <input type="date" name="birthDate" class="text-muted m-0 form-control" value="@Model.BirthDate.ToHtmlDate()">
+                            </div>
                         </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">(098) 765-4321</p>
+                        <hr>
+                        <div class="row"><div class="col-sm-3"><p class="mb-0">Registrated</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.RegistrationDate.ToShortDateString()</p>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Address</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3"><p class="mb-0">State</p></div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.State</p>
+                            </div>
                         </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                        <hr>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-outline-success m-1">Save</button>
+                            <button type="reset" class="btn btn-outline-danger m-1">Clear</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="row">

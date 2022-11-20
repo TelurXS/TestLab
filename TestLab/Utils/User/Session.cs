@@ -9,12 +9,12 @@ namespace TestLab.Utils.User
 {
     public sealed class Session
     {
-        public HttpContext HttpContext { get; private set; }
-
         public Session(HttpContext httpContext)
         {
             HttpContext = httpContext;
         }
+
+        public HttpContext HttpContext { get; private set; }
 
         public async void Create(Account account) 
         {

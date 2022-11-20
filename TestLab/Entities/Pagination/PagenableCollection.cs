@@ -22,7 +22,7 @@ namespace TestLab.Entities.Pagination
         public int FirstPage => 1;
         public int LastPage => PageCount;
         public int PageCount =>
-            (int)Math.Round(Items.Count() / (float)CountPerPage, MidpointRounding.ToPositiveInfinity);
+            Math.Clamp((int)Math.Round(Items.Count() / (float)CountPerPage, MidpointRounding.ToPositiveInfinity), 1, int.MaxValue);
         public int NextPage =>
             Math.Clamp(CurrentPage + 1, 1, PageCount);
         public int PreviousPage =>

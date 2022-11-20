@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TestLab.DataBase;
 using TestLab.Entities;
 using TestLab.Models;
 using TestLab.Utils;
+using TestLab.Utils.Hashing;
 using TestLab.Utils.User;
 using TestLab.Utils.Validation;
 
@@ -11,8 +14,14 @@ namespace TestLab.Controllers
 {
     public class AccountController : Controller
     {
-        public Accounts Accounts { get; } = new Accounts(new TestLabContext());
+        public AccountController()
+        {
+            Accounts = new Accounts(new TestLabContext());
+            Hasher = new Hasher();
+        }
 
+        public Accounts Accounts { get; }
+        public IHasher Hasher { get; }
 
         [HttpGet]
         public IActionResult Index()
@@ -21,7 +30,7 @@ namespace TestLab.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login() 
+        public IActionResult Login()
         {
             return View();
         }
@@ -33,7 +42,7 @@ namespace TestLab.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string login, string password) 
+        public IActionResult Login(string login, string password)
         {
             Account account = null;
 
@@ -42,7 +51,7 @@ namespace TestLab.Controllers
                 new TextValidator(login, "Login").Min(1).ErrorMessage("Login cannot be empty").Max(64)
                     .Execute(Accounts.IsExsist(login, out account)).ErrorMessage("Account is not exsist"),
                 new TextValidator(password, "Password").Min(1).ErrorMessage("Password cannot be empty").Max(64)
-                    .Execute(new Hasher().Verify(password, account?.Password)).ErrorMessage("Wrong password"),
+                    .Execute(Hasher.Verify(password, account?.Password)).ErrorMessage("Wrong password"),
             };
 
             FormViewModel model = new FormViewModel { };
@@ -62,13 +71,13 @@ namespace TestLab.Controllers
         }
 
         [HttpGet]
-        public IActionResult SuccessfullyLogin() 
+        public IActionResult SuccessfullyLogin()
         {
             return View("SuccessfullyLogin");
         }
 
         [HttpGet]
-        public IActionResult SignOut() 
+        public new IActionResult SignOut()
         {
             new Session(HttpContext).Destroy();
 
@@ -76,7 +85,7 @@ namespace TestLab.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string name, string login, string email, string password, string confirmPassword, string termsOfUse) 
+        public IActionResult Register(string name, string login, string email, string password, string confirmPassword, string termsOfUse)
         {
             List<TextValidator> validators = new List<TextValidator>
             {
@@ -99,9 +108,9 @@ namespace TestLab.Controllers
                 }
             }
 
-            Account account = Account.Create(name, login, password);
+            Account account = Account.Create(name, login, email, Hasher.Hash(password));
 
-            if (Accounts.Insert(account)) 
+            if (Accounts.Insert(account))
             {
                 return View("SuccessfullyRegistration");
             }
@@ -111,36 +120,87 @@ namespace TestLab.Controllers
         }
 
         [HttpGet]
-        public IActionResult MyProfile() 
+        public IActionResult MyProfile()
         {
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated is false)
+                return Redirect("/account/login");
+
+            Account account = Accounts.GetBySession(User);
+
+            if (account is null)
             {
-                Account account = Accounts.GetOneByLogin(User.Identity.Name);
-
-                if (account is null) 
-                {
-                    new Session(HttpContext).Destroy();
-                    return Redirect("/account/login");
-                }
-
-                return View(account);
+                new Session(HttpContext).Destroy();
+                return Redirect("/account/login");
             }
-            return Redirect("/account/login");
+
+            return View(new ProfileViewModel { Account = account });
         }
 
         [HttpGet]
-        public IActionResult Profile(int id) 
+        public IActionResult Profile(int id)
         {
             Account account = Accounts.GetOne(id);
 
             if (account is not null)
             {
-                return View(account);
+                return View(new ProfileViewModel { Account = account });
             }
             else
             {
                 return View("AccountNotFound");
             }
+        }
+
+        [HttpPost]
+        public IActionResult ChangeAccountInfo([DefaultValue("")] string name, [DefaultValue("")] string description,
+                                                [DefaultValue("")] string email, [DefaultValue("")] string phone, 
+                                                [DefaultValue("")] string address, DateTime birthDate)
+        {
+            if (User.Identity.IsAuthenticated is false)
+                return Redirect("/account/login");
+
+            Account account = Accounts.GetBySession(User);
+
+            if (account is null)
+            {
+                new Session(HttpContext).Destroy();
+                return Redirect("/account/login");
+            }
+
+            List<TextValidator> validators = new List<TextValidator>()
+            {
+                new TextValidator(name, "Name").Min(3).Max(64),
+                new TextValidator(description, "Description").Max(128),
+                new TextValidator(email, "Email").Max(64),
+                new TextValidator(phone, "Phone").Max(32),
+                new TextValidator(address, "Address").Max(64),
+            };
+
+            ProfileViewModel model = new ProfileViewModel { Account = account };
+
+            foreach (TextValidator validator in validators)
+            {
+                if (validator.IsInvalid)
+                {
+                    model.Message = validator.Message;
+                    return View(nameof(MyProfile), model);
+                }
+            }
+
+            account.Name = name;
+            account.Description = description;
+            account.Email = email;
+            account.Phone = phone;
+            account.Address = address;
+            account.BirthDate = birthDate;
+
+            if (Accounts.Save() is false)
+            {
+                model.Message = "Something wrong";
+                return View(nameof(MyProfile), model);
+            }
+
+            return Redirect("/account/myprofile");
         }
     }
 }

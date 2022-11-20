@@ -20,5 +20,10 @@ namespace TestLab.DataBase
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public bool Save() 
+        {
+            return SaveChanges() > 0;
+        }
     }
 }
