@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@await Component.InvokeAsync("DashboardSidebar", "Stats")
+
+<div class="d-flex flex-wrap align-content-center justify-content-around align-items-center">
+    <div>
+        <canvas id="pie"></canvas>
+    </div>
+    <div>
+        <canvas id="radar"></canvas>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <canvas id="line"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="~/js/dashboard/stats.js" defer></script>

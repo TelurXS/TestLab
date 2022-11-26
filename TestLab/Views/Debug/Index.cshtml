@@ -3,3 +3,8 @@
 }
 
 <h1>Debug</h1>
+
+<form method="post" asp-controller="Debug" asp-action="PostImage" enctype="multipart/form-data">
+    <input type="file" name="image"/>
+    <button type="submit">Send</button>
+</form>

@@ -8,7 +8,11 @@
     <h1>News</h1>
 </div>
 
-@await Component.InvokeAsync("PaginationCountSelector", Model.ViewModel )
+<div class="d-flex justify-content-center align-items-center mb-4">
+    <span class="mr-3">Count:</span>
+        @await Component.InvokeAsync("PaginationCountSelector", Model.ViewModel)
+    <button class="btn btn-primary ml-3" id="apply">Apply</button>
+</div>
 
 <div class="d-flex flex-wrap justify-content-around align-content-around">
 

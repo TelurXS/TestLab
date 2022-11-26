@@ -44,11 +44,16 @@ namespace TestLab.Entities
                 Phone = "",
                 Email = email,
                 Address = "",
-                ProfileImage = "/img/profile.jpg",
+                ProfileImage = Config.Account.DefaultProfileImage,
                 BirthDate = DateTime.Now,
                 RegistrationDate = DateTime.Now,
                 State = AccountState.User,
             };
+        }
+
+        public bool HavePermission(AccountState permission) 
+        {
+            return State >= permission;
         }
     }
 }

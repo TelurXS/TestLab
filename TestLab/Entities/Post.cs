@@ -18,7 +18,7 @@ namespace TestLab.Entities
         public string Content { get; set; }
         public string Image { get; set; }
 
-        public Account Author { get; set; }
+        public int AuthorId { get; set; }
 
         [DataType(DataType.DateTime)] 
         public DateTime CreationDate { get; set; }

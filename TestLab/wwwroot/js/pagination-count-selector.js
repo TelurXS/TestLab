@@ -1,10 +1,11 @@
 ﻿
-const selector = document.getElementById("countSelector");
-const apply = document.getElementById("apply");
+const selector = $("#countSelector");
+const apply = $("#apply");
 
-apply.onclick = () =>
+const Apply = () =>
 {
-    var selectedCount = selector.value;
-
-    window.location.assign(`?page=1&count=${selectedCount}`)
+    var count = selector.val();
+    window.location.assign(`?page=1&count=${count}`);
 }
+
+apply.click(Apply);

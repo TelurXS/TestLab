@@ -2,11 +2,8 @@
 
 namespace TestLab.Models
 {
-    public class FormViewModel
+    public class FormViewModel : MessageViewModel
     {
         public IFormCollection Form { get; set; }
-
-        public string? Message { get; set; }
-        public bool HasMessage => string.IsNullOrEmpty(Message) is false;
     }
 }

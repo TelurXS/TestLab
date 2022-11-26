@@ -5,6 +5,7 @@ using System.ComponentModel;
 using TestLab.DataBase;
 using TestLab.Entities;
 using TestLab.Entities.Pagination;
+using TestLab.Models;
 
 namespace TestLab.Controllers
 {
@@ -12,10 +13,14 @@ namespace TestLab.Controllers
     {
         public NewsController()
         {
-            Posts = new Posts(new TestLabContext());
+            TestLabContext context = new TestLabContext();
+
+            Posts = new Posts(context);
+            Accounts = new Accounts(context);
         }
 
         public Posts Posts { get; set; }
+        public Accounts Accounts { get; set; }
 
         [HttpGet]
         public IActionResult Index([DefaultValue(1)] int page, [DefaultValue(9)] int count)
@@ -23,7 +28,7 @@ namespace TestLab.Controllers
             IEnumerable<Post> posts = Posts.GetAll();
 
             PagenableCollection<Post> collection =
-                new PagenableCollection<Post>(posts, count, page);
+                new PagenableCollection<Post>(posts, count, page, "/news");
 
             return View(collection);
         }
@@ -33,9 +38,22 @@ namespace TestLab.Controllers
         {
             Post post = Posts.GetOne(id);
 
-            //Validation
+            if (post is not null)
+            {
+                Account author = Accounts.GetOne(post.AuthorId);
 
-            return View(post);
+                PostViewModel model = new PostViewModel
+                {
+                    Post = post,
+                    Author = author,
+                };
+
+                return View(model);
+            }
+            else 
+            {
+                return View("PostNotFound");
+            }
         }
     }
 }

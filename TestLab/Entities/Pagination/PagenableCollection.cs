@@ -8,6 +8,14 @@ namespace TestLab.Entities.Pagination
 {
     public sealed class PagenableCollection<T> : IEnumerable<T>
     {
+        public PagenableCollection(IEnumerable<T> items, int countPerPage, int currentPage, string redirectTo)
+        {
+            Items = items;
+            CountPerPage = countPerPage;
+            CurrentPage = currentPage;
+            RedirectTo = redirectTo;
+        }
+
         public PagenableCollection(IEnumerable<T> items, int countPerPage, int currentPage)
         {
             Items = items;
@@ -18,6 +26,7 @@ namespace TestLab.Entities.Pagination
         public IEnumerable<T> Items { get; private set; }
         public int CountPerPage { get; private set; }
         public int CurrentPage { get; private set; }
+        public string RedirectTo { get; private set; }
 
         public int FirstPage => 1;
         public int LastPage => PageCount;
@@ -38,7 +47,8 @@ namespace TestLab.Entities.Pagination
                 CurrentPage = CurrentPage, 
                 Pages = Pages,
                 CountPerPage = CountPerPage, 
-                PossibleCounts = new List<int> { 9, 6, 3, 20, 50 }
+                PossibleCounts = Config.Pagination.PossibleCountPerPage,
+                RedirectTo = RedirectTo,
             };
 
         public IEnumerable<int> Pages => 

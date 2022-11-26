@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections;
-using System.Collections.Generic;
-using TestLab.DataBase;
-using TestLab.Entities;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using TestLab.Utils.Files;
 
 namespace TestLab.Controllers
 {
@@ -11,6 +10,16 @@ namespace TestLab.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult PostImage(IFormFile image) 
+        {
+            new FileParser().Save(image, out string name);
+
+            Console.WriteLine(name);
+
+            return Redirect("/debug");
         }
     }
 }

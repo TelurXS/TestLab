@@ -8,6 +8,7 @@ namespace TestLab.Models
     {
         public IEnumerable<INavigation> Navigations { get; set; }
 
+        public Account Account { get; set; }
         public IIdentity User { get; set; }
     }
 }

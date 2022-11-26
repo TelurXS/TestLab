@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Accounts";
+}
+@model DashboardAccountsViewModel
+
+<link href="~/css/modal-window.css" rel="stylesheet" />
+
+@await Component.InvokeAsync("DashboardSidebar", "Accounts")
+@await Component.InvokeAsync("Message", Model)
+
+<h5 class="display-5">Accounts</h5>
+<form asp-controller="dashboard" asp-action="accounts" method="get">
+    <div class="row">
+        <div class="col-sm-1">@await Component.InvokeAsync("PaginationCountSelector", Model.Accounts.ViewModel)</div>
+        <div class="col-sm-10"><input type="search" value="@Model.SearchPatter" name="search" placeholder="Search..." class="form-control mb-1" /></div>
+        <div class="col-sm-1"><button type="submit" class="btn btn-outline-success" id="apply">Apply</button></div>
+    </div>
+</form>
+
+
+<table class="table">
+    <tr class="d-table-row">
+        <td class="d-table-cell">Id</td>
+        <td class="d-table-cell">Login</td>
+        <td class="d-table-cell">Name</td>
+        <td class="d-table-cell">Email</td>
+        <td class="d-table-cell">Birth Date</td>
+        <td class="d-table-cell">Controls</td>
+    </tr>
+
+    @foreach (Account account in Model.Accounts.GetByCurrentPage())
+    {
+        <tr class="d-table-row">
+            <td class="d-table-cell">@account.Id</td>
+            <td class="d-table-cell">@account.Login</td>
+            <td class="d-table-cell">@account.Name</td>
+            <td class="d-table-cell">@account.Email</td>
+            <td class="d-table-cell">@account.BirthDate.ToShortDateString()</td>
+            <td class="d-table-cell">
+                <button modal-data="@account.Id" modal-open class="btn btn-outline-primary">
+                    <i class="bi bi-pen"></i> Edit
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+@await Component.InvokeAsync("Pagination", Model.Accounts.ViewModel)
+
+<div class="screen-fade modal-closed" modal-window>
+    <div class="container bg-light rounded p-3">
+
+        <h5>Account</h5>
+
+        <form method="post" asp-controller="dashboard" asp-action="changeaccountinfo" prevent-default>
+
+            <input type="hidden" name="search" value="@Model.SearchPatter" />
+            <input type="hidden" name="count" value="@Model.Accounts.CountPerPage" />
+            <input type="hidden" name="page" value="@Model.Accounts.CurrentPage" />
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Id</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="id" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Login</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="login" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Password</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="password" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Name</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="name" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Description</p></div>
+                <div class="col-sm-10">
+                    <textarea name="description" class="text-muted mb-0 form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Phone</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="phone" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Email</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="email" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Address</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="address" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Birth Date</p></div>
+                <div class="col-sm-10">
+                    <input type="date" name="birthDate" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Registration Date</p></div>
+                <div class="col-sm-10">
+                    <input type="date" name="registrationDate" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Profile Image</p></div>
+                <div class="col-sm-10">
+                    <input type="file" name="profileImage" class="text-muted mb-0 form-control btn">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">State</p></div>
+                <div class="col-sm-10">
+                    <select name="state" class="form-control text-muted">
+                        <option value="0">User</option>
+                        <option value="1">Redactor</option>
+                        <option value="2">Administrator</option>
+                        <option value="3">Deleted</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="m-3">
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
+                <button type="reset" class="btn btn-outline-danger"><i class="bi bi-arrow-counterclockwise"></i>Break all</button>
+                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/modal-window.js" defer></script>
+<script src="~/js/dashboard/accounts.js" defer></script>

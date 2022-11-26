@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\dashboard\\sidebar.css",
+      "PackagePath": "staticwebassets\\css\\dashboard\\sidebar.css"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\forms.css",
       "PackagePath": "staticwebassets\\css\\forms.css"
     },
@@ -9,8 +13,16 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\modal-window.css",
+      "PackagePath": "staticwebassets\\css\\modal-window.css"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\stats.css",
+      "PackagePath": "staticwebassets\\css\\stats.css"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\favicon.ico",
@@ -37,12 +49,32 @@
       "PackagePath": "staticwebassets\\js\\copy-button.js"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\accounts.js",
+      "PackagePath": "staticwebassets\\js\\dashboard\\accounts.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\stats.js",
+      "PackagePath": "staticwebassets\\js\\dashboard\\stats.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\modal-window.js",
+      "PackagePath": "staticwebassets\\js\\modal-window.js"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\pagination-count-selector.js",
       "PackagePath": "staticwebassets\\js\\pagination-count-selector.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\prevent-default-form.js",
       "PackagePath": "staticwebassets\\js\\prevent-default-form.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\profile-form.js",
+      "PackagePath": "staticwebassets\\js\\profile-form.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\sidebar.js",
+      "PackagePath": "staticwebassets\\js\\sidebar.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\site.js",

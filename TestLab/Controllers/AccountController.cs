@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using TestLab.DataBase;
 using TestLab.Entities;
 using TestLab.Models;
 using TestLab.Utils;
+using TestLab.Utils.Files;
 using TestLab.Utils.Hashing;
 using TestLab.Utils.User;
 using TestLab.Utils.Validation;
@@ -197,10 +199,29 @@ namespace TestLab.Controllers
             if (Accounts.Save() is false)
             {
                 model.Message = "Something wrong";
+                model.MessageType = MessageType.Danger;
                 return View(nameof(MyProfile), model);
             }
 
             return Redirect("/account/myprofile");
+        }
+
+        [HttpPost]
+        public IActionResult ChangeImage(IFormFile image) 
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                Account account = Accounts.GetBySession(User);
+
+                new FileParser().Save(image, out string name);
+
+                account.ProfileImage = "/users/images/" + name;
+
+                Accounts.Save();
+
+                return Redirect("/account/myprofile");
+            }
+            else return Redirect("/account/login");
         }
     }
 }

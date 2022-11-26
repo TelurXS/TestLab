@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Posts";
+}
+@await Component.InvokeAsync("DashboardSidebar", "Posts")
+
+
+@await Component.InvokeAsync("Message", new MessageViewModel { Message = "Debug", MessageType = MessageType.Success })

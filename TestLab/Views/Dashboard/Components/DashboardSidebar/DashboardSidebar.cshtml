@@ -1,0 +1,49 @@
+﻿@model DashboardSidebarViewModel
+
+<link href="~/css/dashboard/sidebar.css" rel="stylesheet" />
+
+<div class="sidebar-open bg-dark" id="sidebar-open">
+    <i class="bi bi-chevron-double-right"></i>
+</div>
+<div class="sidebar bg-dark s-close" id="sidebar">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white">
+        <div class="d-flex align-items-center">
+            <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img src="~/img/logo.png" alt="Logo" width="32" class="img-fluid mr-2" />
+                <h6 class="fs-4 pt-2 mr-2 sidebar-header">Dashboard</h6>
+            </a>
+            <button class="btn btn-dark sidebar-close" id="sidebar-close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto sidebar-nav">
+
+            @foreach (Navigation item in Model.Navigations)
+            {
+                if (item.Title == Model.OpenedTab)
+                {
+                    <li class="nav-item">
+                        <a href="@item.Href" class="nav-link text-white active">
+                            <i class="bi bi-@item.Icon"></i>
+                            @item.Title
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a href="@item.Href" class="nav-link text-white">
+                            <i class="bi bi-@item.Icon"></i>
+                            @item.Title
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+        <hr>
+    </div>
+</div>
+
+<script src="~/js/sidebar.js" defer></script>

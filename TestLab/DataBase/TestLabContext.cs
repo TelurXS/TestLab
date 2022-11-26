@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TestLab.Entities;
-using TestLab.Utils;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TestLab.DataBase
 {

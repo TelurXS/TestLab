@@ -3,13 +3,9 @@ using TestLab.Entities;
 
 namespace TestLab.Models
 {
-    public class ProfileViewModel
+    public class ProfileViewModel : MessageViewModel
     {
         public Account Account { get; set; }
-
-        public string Message { get; set; }
-        public bool HasMessage => string.IsNullOrEmpty(Message) is false;
-
 
         public int Id => Account.Id;
         public string Login => Account.Login;
@@ -25,6 +21,5 @@ namespace TestLab.Models
         public DateTime RegistrationDate => Account.RegistrationDate;
 
         public AccountState State => Account.State;
-
     }
 }

@@ -14,5 +14,7 @@ namespace TestLab.Models
         public int LastPage { get; set; }
         public int NextPage { get; set; }
         public int PreviousPage { get; set; }
+
+        public string RedirectTo { get; set; }
     }
 }

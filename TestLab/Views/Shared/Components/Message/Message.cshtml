@@ -1,0 +1,11 @@
+﻿@model MessageViewModel
+
+@if (Model?.HasMessage is true)
+{
+    <div class="alert alert-@Model.MessageType.ToString().ToLower() alert-dismissible fade show">
+        @Model.Message
+        <button type="button" class="close small" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}

@@ -4,6 +4,8 @@
 @using TestLab.Utils;
 @model ProfileViewModel;
 
+<link href="~/css/modal-window.css" rel="stylesheet" />
+
 <section>
     <div class="row">
         <div class="col-lg-4">
@@ -15,7 +17,7 @@
                     <p class="text-muted mb-1">@Model.Login</p>
                     <p class="text-muted mb-4">@Model.Description</p>
                     <div class="d-flex justify-content-center mb-2">
-                        <button type="button" class="btn btn-outline-primary m-1">Change Image</button>
+                        <button modal-open class="btn btn-outline-primary m-1">Change Image</button>
                     </div>
                 </div>
             </div>
@@ -54,17 +56,9 @@
             <div class="card mb-4">
                 <div class="card-body">
 
-                    @if (Model?.HasMessage == true)
-                    {
-                        <div class="alert alert-danger alert-dismissible fade show">
-                            @Model.Message
-                            <button type="button" class="close small" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    }
+                    @await Component.InvokeAsync("Message", Model)
 
-                    <form asp-controller="account" asp-action="changeaccountinfo" method="post">
+                    <form asp-controller="account" asp-action="changeaccountinfo" method="post" class="profile-form">
                         <div class="row">
                             <div class="col-sm-3"><p class="mb-0 mt-2">Full Name</p></div>
                             <div class="col-sm-9">
@@ -107,7 +101,9 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row"><div class="col-sm-3"><p class="mb-0">Registrated</p>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Registrated</p>
                             </div>
                             <div class="col-sm-9">
                                 <p class="text-muted mb-0">@Model.RegistrationDate.ToShortDateString()</p>
@@ -120,10 +116,16 @@
                                 <p class="text-muted mb-0">@Model.State</p>
                             </div>
                         </div>
-                        <hr>
+                        <hr show-on-change class="d-none">
                         <div class="d-flex justify-content-center align-items-center">
-                            <button type="submit" class="btn btn-outline-success m-1">Save</button>
-                            <button type="reset" class="btn btn-outline-danger m-1">Clear</button>
+                            <button type="submit" show-on-change class="btn btn-outline-success m-1 d-none">
+                                <i class="bi bi-check-lg"></i>
+                                Save
+                            </button>
+                            <button type="reset" show-on-change class="btn btn-outline-danger m-1 d-none fade-in">
+                                <i class="bi bi-x-lg"></i>
+                                Clear
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -200,5 +202,20 @@
             </div>
         </div>
     </div>
-    </div>
 </section>
+
+<div class="screen-fade modal-closed" modal-window>
+    <div class="container bg-light rounded p-3">
+        <form asp-controller="account" asp-action="changeimage" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" class="form-control btn" />
+
+            <div class="m-3">
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
+                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/js/modal-window.js" defer></script>
+<script src="~/js/profile-form.js" defer></script>

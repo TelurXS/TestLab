@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using TestLab.Entities;
 
 namespace TestLab.DataBase
@@ -35,7 +36,17 @@ namespace TestLab.DataBase
         public Account GetBySession(ClaimsPrincipal claim) 
         {
             return GetOneByLogin(claim.Identity.Name);
-        } 
+        }
+
+        public Account GetBySession(IPrincipal principal)
+        {
+            return GetOneByLogin(principal.Identity.Name);
+        }
+
+        public IEnumerable<Account> Search(string pattern) 
+        {
+            return Collection.Where(x => x.Name.Contains(pattern) || x.Login.Contains(pattern) || x.Email.Contains(pattern));
+        }
 
         public bool IsExsist(int id, out Account account) 
         {

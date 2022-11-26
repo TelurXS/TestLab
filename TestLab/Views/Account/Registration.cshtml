@@ -11,15 +11,7 @@
         <img class="mb-4" src="~/img/logo.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
 
-        @if(Model?.HasMessage == true) 
-        {
-            <div class="alert alert-danger alert-dismissible fade show">
-                @Model.Message
-                <button type="button" class="close small" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        }  
+        @await Component.InvokeAsync("Message", Model)
 
         <div class="form-inputs">
             <input type="text" name="name" id="inputName" class="form-control" value="@Model?.Form["name"]" placeholder="Name" required autofocus>

@@ -49,6 +49,12 @@
                             @if (Model.User.IsAuthenticated)
                             {
                                 <a class="dropdown-item" href="/account/myprofile">Profile <span class="text-muted">(@Model.User.Name)</span></a>
+
+                                @if (Model.Account.HavePermission(Config.Dashboard.RequiredPermission))
+                                {
+                                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                }
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/account/signout">Sign Out</a>
                             }
