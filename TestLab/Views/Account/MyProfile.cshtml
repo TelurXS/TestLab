@@ -12,7 +12,7 @@
             <div class="card mb-4">
                 <div class="card-body text-center">
                     <img src="@Model.ProfileImage" alt="avatar"
-                         class="rounded-circle img-fluid" style="width: 150px;">
+                         class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
                     <h5 class="my-3">@Model.Name</h5>
                     <p class="text-muted mb-1">@Model.Login</p>
                     <p class="text-muted mb-4">@Model.Description</p>
@@ -205,17 +205,22 @@
 </section>
 
 <div class="screen-fade modal-closed" modal-window>
-    <div class="container bg-light rounded p-3">
+    <div class="container bg-light rounded p-3 mt-2" style="width: 400px">
         <form asp-controller="account" asp-action="changeimage" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" class="form-control btn" />
+            <div class="d-flex align-items-center flex-column">
+                <img src="@Model.ProfileImage" class="img-fluid rounded-circle" style="width: 300px; height: 300px;" id="image-preview"/>
 
-            <div class="m-3">
-                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
-                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
+                <input type="file" name="image" class="form-control btn" id="image-input" />
+
+                <div class="m-3">
+                    <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
+                    <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
+<script src="~/js/image-peview.js" defer></script>
 <script src="~/js/modal-window.js" defer></script>
 <script src="~/js/profile-form.js" defer></script>

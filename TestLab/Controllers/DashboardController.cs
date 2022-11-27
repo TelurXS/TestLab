@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using TestLab.DataBase;
 using TestLab.Entities;
 using TestLab.Entities.Pagination;
 using TestLab.Models;
+using TestLab.Utils.Files;
 using TestLab.Utils.Validation;
 
 namespace TestLab.Controllers
@@ -59,10 +62,9 @@ namespace TestLab.Controllers
 
         [HttpPost]
         public IActionResult ChangeAccountInfo([DefaultValue("")] string search, [DefaultValue(1)] int page, [DefaultValue(9)] int count, 
-            [DefaultValue(0)] int id, [DefaultValue("")] string name,
-            [DefaultValue("")] string description, [DefaultValue("")] string phone, 
-            [DefaultValue("")] string email, [DefaultValue("")] string address,
-            DateTime birthDate, DateTime registrationDate, AccountState state)
+            [DefaultValue(0)] int id, [DefaultValue("")] string name, [DefaultValue("")] string description, 
+            [DefaultValue("")] string phone, [DefaultValue("")] string email, [DefaultValue("")] string address,
+            IFormFile profileImage, DateTime birthDate, DateTime registrationDate, AccountState state)
         {
             Account account = AccountsCollection.GetOne(id);
 
@@ -84,6 +86,26 @@ namespace TestLab.Controllers
                     if (validator.IsInvalid)
                     {
                         model.Message = validator.Message;
+                        return View(nameof(Accounts), model);
+                    }
+                }
+
+                if (profileImage is not null)
+                {
+                    FileParser parser = new FileParser();
+
+                    if (account.ProfileImage != Config.Account.DefaultProfileImage)
+                        parser.DeleteUserImage(account.ProfileImage);
+
+                    bool saveResult = parser.SaveUserImage(profileImage, out string fileName);
+
+                    if (saveResult is true)
+                    {
+                        account.ProfileImage = fileName;
+                    }
+                    else 
+                    {
+                        model.Message = "Image is not valid";
                         return View(nameof(Accounts), model);
                     }
                 }
@@ -116,11 +138,11 @@ namespace TestLab.Controllers
 
             if (string.IsNullOrEmpty(pattern))
             {
-                accounts = new PagenableCollection<Account>(AccountsCollection.GetAll(), count, page, "/dashboard/accounts");
+                accounts = new PagenableCollection<Account>(AccountsCollection.GetAll(), count, page, $"/dashboard/accounts?search={pattern}");
             }
             else
             {
-                accounts = new PagenableCollection<Account>(AccountsCollection.Search(pattern), count, page, "/dashboard/accounts");
+                accounts = new PagenableCollection<Account>(AccountsCollection.Search(pattern), count, page, $"/dashboard/accounts?search={pattern}");
             }
 
             DashboardAccountsViewModel model =

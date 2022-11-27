@@ -11,5 +11,3 @@ const Hide = () =>
 
 $("form.profile-form input").on('propertychange input', Show);
 $("form.profile-form button[type=reset]").click(Hide);
-
-console.log($("form.profile-form button[type=reset]"));

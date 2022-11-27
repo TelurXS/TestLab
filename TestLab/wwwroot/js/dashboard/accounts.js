@@ -14,8 +14,9 @@ var birthDateInput = $("[name=birthDate]");
 var registrationDateInput = $("[name=registrationDate]");
 var stateInput = $("[name=state]");
 
+var watchProfile = $("#watchProfile");
+
 var on_modal_open = (id) => {
-    console.log("Modal open");
 
     $.ajax({
         type: "GET",
@@ -34,6 +35,8 @@ var on_modal_open = (id) => {
             birthDateInput.val(ToHtmlDate(response.birthDate));
             registrationDateInput.val(ToHtmlDate(response.registrationDate));
             stateInput.val(response.state);
+
+            watchProfile.attr("href", `/account/profile?id=${response.id}`);
         },
         error: () => {
             console.log("Server error");

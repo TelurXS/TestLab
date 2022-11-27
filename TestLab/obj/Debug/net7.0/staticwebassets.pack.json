@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\js\\dashboard\\stats.js"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\image-peview.js",
+      "PackagePath": "staticwebassets\\js\\image-peview.js"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\modal-window.js",
       "PackagePath": "staticwebassets\\js\\modal-window.js"
     },
@@ -211,6 +215,14 @@
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\0cbba033-e746-4390-871b-be7fda63cb57.jpg",
+      "PackagePath": "staticwebassets\\users\\images\\0cbba033-e746-4390-871b-be7fda63cb57.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg",
+      "PackagePath": "staticwebassets\\users\\images\\2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.TestLab.Microsoft.AspNetCore.StaticWebAssets.props",

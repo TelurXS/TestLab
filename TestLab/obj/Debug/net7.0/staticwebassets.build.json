@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LG5UKh4UCu1Ut05Yijb/4fwu2VV4cgpeBNTThLlDS+E=",
+  "Hash": "Y6OXlSkwbjnnjguUuci2KoL0SjCAnye0EgB4u5E5mEc=",
   "Source": "TestLab",
   "BasePath": "_content/TestLab",
   "Mode": "Default",
@@ -253,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\dashboard\\stats.js"
+    },
+    {
+      "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\image-peview.js",
+      "SourceId": "TestLab",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\",
+      "BasePath": "_content/TestLab",
+      "RelativePath": "js/image-peview.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\image-peview.js"
     },
     {
       "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\modal-window.js",
@@ -916,6 +933,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\0cbba033-e746-4390-871b-be7fda63cb57.jpg",
+      "SourceId": "TestLab",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\",
+      "BasePath": "_content/TestLab",
+      "RelativePath": "users/images/0cbba033-e746-4390-871b-be7fda63cb57.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\images\\0cbba033-e746-4390-871b-be7fda63cb57.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg",
+      "SourceId": "TestLab",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\",
+      "BasePath": "_content/TestLab",
+      "RelativePath": "users/images/2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\images\\2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg"
     }
   ]
 }

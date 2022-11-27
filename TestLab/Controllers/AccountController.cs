@@ -155,7 +155,7 @@ namespace TestLab.Controllers
 
         [HttpPost]
         public IActionResult ChangeAccountInfo([DefaultValue("")] string name, [DefaultValue("")] string description,
-                                                [DefaultValue("")] string email, [DefaultValue("")] string phone, 
+                                                [DefaultValue("")] string email, [DefaultValue("")] string phone,
                                                 [DefaultValue("")] string address, DateTime birthDate)
         {
             if (User.Identity.IsAuthenticated is false)
@@ -207,21 +207,25 @@ namespace TestLab.Controllers
         }
 
         [HttpPost]
-        public IActionResult ChangeImage(IFormFile image) 
+        public IActionResult ChangeImage(IFormFile image)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                Account account = Accounts.GetBySession(User);
+            if (User.Identity.IsAuthenticated is false)
+                return Redirect("/account/login");
 
-                new FileParser().Save(image, out string name);
+            Account account = Accounts.GetBySession(User);
 
-                account.ProfileImage = "/users/images/" + name;
+            FileParser parser = new FileParser();
 
-                Accounts.Save();
+            if (account.ProfileImage != Config.Account.DefaultProfileImage)
+                parser.DeleteUserImage(account.ProfileImage);
 
-                return Redirect("/account/myprofile");
-            }
-            else return Redirect("/account/login");
+            parser.SaveUserImage(image, out string name);
+
+            account.ProfileImage = name;
+
+            Accounts.Save();
+
+            return Redirect("/account/myprofile");
         }
     }
 }

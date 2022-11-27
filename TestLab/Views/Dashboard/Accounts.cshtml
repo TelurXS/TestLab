@@ -48,11 +48,11 @@
 @await Component.InvokeAsync("Pagination", Model.Accounts.ViewModel)
 
 <div class="screen-fade modal-closed" modal-window>
-    <div class="container bg-light rounded p-3">
+    <div class="container bg-light rounded p-3 mt-2">
 
         <h5>Account</h5>
 
-        <form method="post" asp-controller="dashboard" asp-action="changeaccountinfo" prevent-default>
+        <form method="post" asp-controller="dashboard" asp-action="changeaccountinfo" enctype="multipart/form-data">
 
             <input type="hidden" name="search" value="@Model.SearchPatter" />
             <input type="hidden" name="count" value="@Model.Accounts.CountPerPage" />
@@ -149,7 +149,8 @@
 
             <div class="m-3">
                 <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
-                <button type="reset" class="btn btn-outline-danger"><i class="bi bi-arrow-counterclockwise"></i>Break all</button>
+                <button type="reset" class="btn btn-outline-danger"><i class="bi bi-arrow-counterclockwise"></i>Break All</button>
+                <a href="/account/profile?id=0" id="watchProfile" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i>Watch Profile</a>
                 <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
             </div>
 

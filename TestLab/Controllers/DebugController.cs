@@ -15,7 +15,7 @@ namespace TestLab.Controllers
         [HttpPost]
         public IActionResult PostImage(IFormFile image) 
         {
-            new FileParser().Save(image, out string name);
+            new FileParser().SaveUserImage(image, out string name);
 
             Console.WriteLine(name);
 
