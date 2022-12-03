@@ -15,9 +15,10 @@ var registrationDateInput = $("[name=registrationDate]");
 var stateInput = $("[name=state]");
 
 var watchProfile = $("#watchProfile");
+var accountReset = $("[account-reset]");
 
-var on_modal_open = (id) => {
-
+const FillFields = (id) =>
+{
     $.ajax({
         type: "GET",
         dataType: 'json',
@@ -37,9 +38,12 @@ var on_modal_open = (id) => {
             stateInput.val(response.state);
 
             watchProfile.attr("href", `/account/profile?id=${response.id}`);
+            accountReset.click(() => { FillFields(response.id) });
         },
         error: () => {
             console.log("Server error");
         }
     });
 }
+
+var on_modal_open = (id) => { FillFields(id) }

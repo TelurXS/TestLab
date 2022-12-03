@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using TestLab.Entities;
+using TestLab.Entities.Projects;
 
 namespace TestLab.Models
 {
@@ -21,5 +23,7 @@ namespace TestLab.Models
         public DateTime RegistrationDate => Account.RegistrationDate;
 
         public AccountState State => Account.State;
+
+        public IEnumerable<Project> Projects { get; set; }
     }
 }

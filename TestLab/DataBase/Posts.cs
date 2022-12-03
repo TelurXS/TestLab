@@ -9,9 +9,11 @@ namespace TestLab.DataBase
     {
         public Posts(TestLabContext context)
         {
+            Context = context;
             Collection = context.Posts;
         }
 
+        public TestLabContext Context { get; set; }
         public DbSet<Post> Collection { get; }
 
         public IEnumerable<Post> GetAll()
@@ -22,6 +24,16 @@ namespace TestLab.DataBase
         public Post GetOne(int id)
         {
             return Collection.SingleOrDefault(x => x.Id == id);
+        }
+
+        public IEnumerable<Post> Search(string pattern) 
+        {
+            return Collection.Where(x => x.Title.Contains(pattern) || x.Description.Contains(pattern));
+        }
+
+        public bool Save()
+        {
+            return Context.Save();
         }
     }
 }

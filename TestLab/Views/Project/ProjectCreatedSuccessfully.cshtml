@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Successfully Created";
+}
+@model TestLab.Entities.Projects.Project
+
+<div class="p-5 d-flex align-items-center justify-content-center flex-column">
+    <h2>Project Successfully Created</h2>
+    <a href="/project?id=@Model.Id" class="btn btn-outline-primary text-primary mt-3">Watch Results</a>
+</div>

@@ -45,12 +45,20 @@
       "PackagePath": "staticwebassets\\img\\sad-cat.jpg"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\unnamed.jpg",
+      "PackagePath": "staticwebassets\\img\\unnamed.jpg"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\copy-button.js",
       "PackagePath": "staticwebassets\\js\\copy-button.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\accounts.js",
       "PackagePath": "staticwebassets\\js\\dashboard\\accounts.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\posts.js",
+      "PackagePath": "staticwebassets\\js\\dashboard\\posts.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\stats.js",
@@ -217,12 +225,92 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\0cbba033-e746-4390-871b-be7fda63cb57.jpg",
-      "PackagePath": "staticwebassets\\users\\images\\0cbba033-e746-4390-871b-be7fda63cb57.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\23b87826-af83-47c8-9c58-effd8e0cb51f.png",
+      "PackagePath": "staticwebassets\\posts\\images\\23b87826-af83-47c8-9c58-effd8e0cb51f.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg",
-      "PackagePath": "staticwebassets\\users\\images\\2364dec4-7ba0-45e4-9e98-56e9f96c3028.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\008212db-eac1-4878-b8f3-4e193ef1f6c0.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\008212db-eac1-4878-b8f3-4e193ef1f6c0.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\173120c1-5bf6-4195-9acd-d23f4e7ba0c2.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\173120c1-5bf6-4195-9acd-d23f4e7ba0c2.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\290e689b-dc66-4863-8bf1-bf09fb526852.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\290e689b-dc66-4863-8bf1-bf09fb526852.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\35c53b12-0e57-4838-a16f-0db9ccc1ccef.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\35c53b12-0e57-4838-a16f-0db9ccc1ccef.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\5b6518c1-c38c-4615-a305-6bfd7eb79504.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\5b6518c1-c38c-4615-a305-6bfd7eb79504.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\637bc1f5-afe8-431a-a3ab-584dc3771659.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\637bc1f5-afe8-431a-a3ab-584dc3771659.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\67c3c73e-2518-4656-adcc-fefaed159a70.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\67c3c73e-2518-4656-adcc-fefaed159a70.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\68088c2e-d06f-40ec-ac20-f3056a8be61f.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\68088c2e-d06f-40ec-ac20-f3056a8be61f.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\8bf53b6c-6f10-47c9-9237-ee9ca9478081.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\8bf53b6c-6f10-47c9-9237-ee9ca9478081.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\8efcf4ee-1fbe-436d-939e-fc7aadb5dc0c.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\8efcf4ee-1fbe-436d-939e-fc7aadb5dc0c.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\ab30545e-9fa2-45c8-bcb2-8dff07f4239b.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\ab30545e-9fa2-45c8-bcb2-8dff07f4239b.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\ae0f55c4-8628-4317-9ad0-ec33501b2989.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\ae0f55c4-8628-4317-9ad0-ec33501b2989.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\ae69803e-ccf5-4cf8-81a1-cb16bb2974c1.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\ae69803e-ccf5-4cf8-81a1-cb16bb2974c1.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\bcd4aa05-0387-4941-978a-990fad974713.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\bcd4aa05-0387-4941-978a-990fad974713.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\c332f775-4994-4c3d-9db1-7518514eb981.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\c332f775-4994-4c3d-9db1-7518514eb981.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\c99b9767-7745-43d8-b783-cdb1c069d4b7.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\c99b9767-7745-43d8-b783-cdb1c069d4b7.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\cac41ce6-1c44-4e07-8d49-5b0fe7d42332.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\cac41ce6-1c44-4e07-8d49-5b0fe7d42332.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\e934c520-523d-463c-8595-1f87efc79b40.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\e934c520-523d-463c-8595-1f87efc79b40.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\9c5656eb-bd7e-444f-865e-8012fad99096.png",
+      "PackagePath": "staticwebassets\\users\\images\\9c5656eb-bd7e-444f-865e-8012fad99096.png"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\b1ba3b26-5c31-49e6-9763-684a2033f6bd.jpg",
+      "PackagePath": "staticwebassets\\users\\images\\b1ba3b26-5c31-49e6-9763-684a2033f6bd.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\b8372467-11b4-43fa-8e09-8f8ac59a7d90.jpg",
+      "PackagePath": "staticwebassets\\users\\images\\b8372467-11b4-43fa-8e09-8f8ac59a7d90.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.TestLab.Microsoft.AspNetCore.StaticWebAssets.props",

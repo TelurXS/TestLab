@@ -19,11 +19,15 @@ namespace TestLab.Controllers
         public AccountController()
         {
             Accounts = new Accounts(new TestLabContext());
+            Projects = new Projects(new TestLabContext());
             Hasher = new Hasher();
+            Parser = new FileParser();
         }
 
-        public Accounts Accounts { get; }
-        public IHasher Hasher { get; }
+        public Accounts Accounts { get; set; }
+        public Projects Projects { get; set; }
+        public IHasher Hasher { get; set; }
+        public FileParser Parser { get; set; }
 
         [HttpGet]
         public IActionResult Index()
@@ -135,7 +139,7 @@ namespace TestLab.Controllers
                 return Redirect("/account/login");
             }
 
-            return View(new ProfileViewModel { Account = account });
+            return View(new ProfileViewModel { Account = account, Projects = Projects.GetByAuthor(account.Id) });
         }
 
         [HttpGet]
@@ -145,7 +149,7 @@ namespace TestLab.Controllers
 
             if (account is not null)
             {
-                return View(new ProfileViewModel { Account = account });
+                return View(new ProfileViewModel { Account = account, Projects = Projects.GetByAuthor(account.Id) });
             }
             else
             {
@@ -214,12 +218,7 @@ namespace TestLab.Controllers
 
             Account account = Accounts.GetBySession(User);
 
-            FileParser parser = new FileParser();
-
-            if (account.ProfileImage != Config.Account.DefaultProfileImage)
-                parser.DeleteUserImage(account.ProfileImage);
-
-            parser.SaveUserImage(image, out string name);
+            Parser.ReplaceUserImage(image, account.ProfileImage, out string name);
 
             account.ProfileImage = name;
 

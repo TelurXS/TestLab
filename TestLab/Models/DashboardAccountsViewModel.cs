@@ -8,6 +8,6 @@ namespace TestLab.Models
     {
         public PagenableCollection<Account> Accounts { get; set; }
 
-        public string SearchPatter { get; set; }
+        public string SearchPattern { get; set; }
     }
 }

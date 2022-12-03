@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\posts\images\" />
+    <Folder Include="wwwroot\projects\results\" />
+    <Folder Include="wwwroot\projects\resources\" />
     <Folder Include="wwwroot\users\images\" />
   </ItemGroup>
 

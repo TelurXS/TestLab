@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using TestLab.DataBase;
 using TestLab.Utils.Files;
 
 namespace TestLab.Controllers
@@ -9,17 +10,9 @@ namespace TestLab.Controllers
     {
         public IActionResult Index()
         {
-            return View();
-        }
+            Projects projects = new Projects(new TestLabContext());
 
-        [HttpPost]
-        public IActionResult PostImage(IFormFile image) 
-        {
-            new FileParser().SaveUserImage(image, out string name);
-
-            Console.WriteLine(name);
-
-            return Redirect("/debug");
+            return View(projects);
         }
     }
 }

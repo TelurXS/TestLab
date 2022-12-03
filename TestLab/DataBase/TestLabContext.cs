@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TestLab.Entities;
+using TestLab.Entities.Projects;
 
 namespace TestLab.DataBase
 {
@@ -8,6 +9,7 @@ namespace TestLab.DataBase
         public DbSet<Navigation> Navigations { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

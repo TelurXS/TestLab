@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
+using TestLab.Entities;
 
 namespace TestLab.Utils.Files
 {
@@ -11,14 +12,14 @@ namespace TestLab.Utils.Files
 
         }
 
-        public bool SaveUserImage(IFormFile file, out string name)
+        public bool Save(IFormFile file, out string name, string midleDirectory)
         {
             name = "";
 
-            if (file.Length > 0)
-            {    
+            if (file.Length > 0 && file.Length <= Config.Files.MaxFileLenght)
+            {
                 string imageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                string localPath = "/users/images/" + imageName;
+                string localPath = midleDirectory + imageName;
                 string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + localPath);
                 name = localPath;
 
@@ -33,9 +34,9 @@ namespace TestLab.Utils.Files
             return false;
         }
 
-        public bool DeleteUserImage(string name) 
+        public bool Delete(string localFileName) 
         {
-            string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + name);
+            string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + localFileName);
 
             if (File.Exists(fullPath))
             {
@@ -46,5 +47,30 @@ namespace TestLab.Utils.Files
 
             return false;
         }
+
+        public bool DeleteOrIgnore(string localFileName, string ignoreName) 
+        {
+            if (localFileName != ignoreName)
+                return Delete(localFileName);
+
+            return false;
+        }
+
+        public bool Replace(IFormFile file, string previousName, out string newName, string ignoreName, string middleDirectory) 
+        {
+            if (previousName != ignoreName)
+                Delete(previousName);
+
+            return Save(file, out newName, middleDirectory);
+        }
+
+        public bool SaveUserImage(IFormFile file, out string name) => Save(file, out name, Config.Files.UsersImageDirectory);
+        public bool SaveProjectResource(IFormFile file, out string name) => Save(file, out name, Config.Files.ProjectsResourcesDirectory);
+        public bool SaveProjectResult(IFormFile file, out string name) => Save(file, out name, Config.Files.ProjectsResultsDirectory);
+
+        public bool ReplaceUserImage(IFormFile file, string previousName, out string newName) =>
+            Replace(file, previousName, out newName, Config.Accounts.DefaultProfileImage, Config.Files.UsersImageDirectory);
+        public bool ReplacePostImage(IFormFile file, string previousName, out string newName) =>
+            Replace(file, previousName, out newName, Config.Posts.DefaultPostImage, Config.Files.PostsImageDirectory);
     }
 }

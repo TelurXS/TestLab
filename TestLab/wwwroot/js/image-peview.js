@@ -4,9 +4,7 @@ const image_input = $("#image-input");
 
 const UpdateImage = (e) =>
 {
-    var value = e.target.value;
-    console.log(value);
-    console.log(image_preview);
+    var value = URL.createObjectURL(e.target.files[0]);
     image_preview.attr("src", value);
 }
 

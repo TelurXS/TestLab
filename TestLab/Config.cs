@@ -17,7 +17,12 @@ namespace TestLab
             public static readonly IEnumerable<int> PossibleCountPerPage = new List<int>() { 9, 3, 6, 20, 50 };
         }
 
-        public static class Account
+        public static class Posts
+        {
+            public static readonly string DefaultPostImage = "/img/news.png";
+        }
+
+        public static class Accounts
         {
             public static readonly string DefaultProfileImage = "/img/profile.jpg";
         }
@@ -37,6 +42,12 @@ namespace TestLab
 
         public static class Files
         {
+            public static readonly int MaxFileLenght = 1000000000;
+            public static readonly string UsersImageDirectory = "/users/images/";
+            public static readonly string PostsImageDirectory = "/posts/images/";
+            public static readonly string ProjectsResourcesDirectory = "/projects/resources/";
+            public static readonly string ProjectsResultsDirectory = "/projects/results/";
+
             public static readonly List<string> SupportedImageContentTypes = new List<string>
             {
                 "image/jpeg",

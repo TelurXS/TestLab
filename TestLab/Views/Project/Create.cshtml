@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Create Project";
+}
+@model MessageViewModel
+
+<div>
+    <h2>Create Project</h2>
+
+    @await Component.InvokeAsync("Message", Model)
+
+    <form asp-controller="project" asp-action="create" method="post" enctype="multipart/form-data">
+
+        <div class="row mb-1">
+            <div class="col-sm-2"><p class="mb-0 mt-2">Name</p></div>
+            <div class="col-sm-10">
+                <input type="text" name="name" class="text-muted m-0 form-control">
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-sm-2"><p class="mb-0 mt-2">Accessability</p></div>
+            <div class="col-sm-10">
+                <select name="accessability" class="form-control text-muted">
+                    <option value="0">Private</option>
+                    <option value="1">Public</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-sm-2"><p class="mb-0 mt-2">Type</p></div>
+            <div class="col-sm-10">
+                <select name="type" class="form-control text-muted">
+                    <option value="0">Png To Jpg</option>
+                    <option value="1">Jpg To Png</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-sm-2"><p class="mb-0 mt-2">Resource</p></div>
+            <div class="col-sm-10">
+                <input type="file" name="resource" class="text-muted mb-0 form-control btn">
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+
+    </form>
+</div>

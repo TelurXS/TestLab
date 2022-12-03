@@ -1,7 +1,150 @@
 ﻿@{
     ViewData["Title"] = "Posts";
 }
+@model DashboardPostsViewModel
+
+<link href="~/css/modal-window.css" rel="stylesheet" />
+
 @await Component.InvokeAsync("DashboardSidebar", "Posts")
+@await Component.InvokeAsync("Message", Model)
 
+<h5 class="display-5">Posts</h5>
+<form asp-controller="dashboard" asp-action="posts" method="get">
+    <div class="row">
+        <div class="col-sm-1">@await Component.InvokeAsync("PaginationCountSelector", Model.Posts.ViewModel)</div>
+        <div class="col-sm-10"><input type="search" value="@Model.SearchPattern" name="search" placeholder="Search..." class="form-control mb-1" /></div>
+        <div class="col-sm-1"><button type="submit" class="btn btn-outline-success" id="apply">Apply</button></div>
+    </div>
+</form>
 
-@await Component.InvokeAsync("Message", new MessageViewModel { Message = "Debug", MessageType = MessageType.Success })
+<table class="table">
+    <tr class="d-table-row">
+        <td class="d-table-cell">Id</td>
+        <td class="d-table-cell">Title</td>
+        <td class="d-table-cell">Description</td>
+        <td class="d-table-cell">Creation Date</td>
+        <td class="d-table-cell">State</td>
+        <td class="d-table-cell">Controls</td>
+    </tr>
+
+    @foreach (Post post in Model.Posts)
+    {
+        <tr class="d-table-row">
+            <td class="d-table-cell">@post.Id</td>
+            <td class="d-table-cell">@post.Title</td>
+            <td class="d-table-cell">@post.Description</td>
+            <td class="d-table-cell">@post.CreationDate.ToShortDateString()</td>
+            <td class="d-table-cell">@post.State</td>
+            <td class="d-table-cell">
+                <div class="d-flex">
+                    <button modal-data="@post.Id" modal-open class="btn btn-outline-primary m-1">
+                        <i class="bi bi-pen"></i> Edit
+                    </button>
+
+                    @if (post.State is PostState.Created)
+                    {
+                        <form asp-controller="dashboard" asp-action="releasepost" method="post">
+                            <input type="hidden" name="id" value="@post.Id" />
+                            <button type="submit" class="btn btn-outline-success m-1">
+                                <i class="bi bi-check-lg"></i>Release
+                            </button>
+                        </form>
+                    }
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+@await Component.InvokeAsync("Pagination", Model.Posts.ViewModel)
+
+<div class="screen-fade modal-closed" modal-window>
+    <div class="container bg-light rounded p-3 mt-2">
+        <h5>Post</h5>
+
+        <form method="post" asp-controller="dashboard" asp-action="changepostinfo" enctype="multipart/form-data">
+
+            <input type="hidden" name="search" value="@Model.SearchPattern" />
+            <input type="hidden" name="count" value="@Model.Posts.CountPerPage" />
+            <input type="hidden" name="page" value="@Model.Posts.CurrentPage" />
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Id</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="id" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Author</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="author" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Title</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="title" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Description</p></div>
+                <div class="col-sm-10">
+                    <textarea name="description" class="text-muted mb-0 form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Content</p></div>
+                <div class="col-sm-10">
+                    <textarea name="content" class="text-muted mb-0 form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Creation Date</p></div>
+                <div class="col-sm-10">
+                    <input type="date" name="creationDate" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Release Date</p></div>
+                <div class="col-sm-10">
+                    <input type="date" name="releaseDate" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Image</p></div>
+                <div class="col-sm-10">
+                    <input type="file" accept="image/*" name="postImage" class="text-muted mb-0 form-control btn">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">State</p></div>
+                <div class="col-sm-10">
+                    <select name="state" class="form-control text-muted">
+                        <option value="0">Created</option>
+                        <option value="1">Published</option>
+                        <option value="2">Deleted</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="m-3">
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
+                <a post-reset class="btn btn-outline-danger text-danger"><i class="bi bi-arrow-counterclockwise"></i>Reset</a>
+                <a href="/news/post?id=0" id="watchPost" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i>Watch Post</a>
+                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/modal-window.js" defer></script>
+<script src="~/js/dashboard/posts.js" defer></script>

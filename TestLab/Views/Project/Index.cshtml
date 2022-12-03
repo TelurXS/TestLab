@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Project";
+}
+@using TestLab.Entities.Projects;
+@model ProjectViewModel
+
+<h2>Project</h2>
+
+@if (Model.IsViewAllowed is false)
+{
+    <div class="d-flex align-items-center flex-column mt-5">
+        <h1>You don't have enough permission to watch this :(</h1>
+        <img src="~/img/sad-cat.jpg" alt="Sad car :(" style="width: 200px" />
+    </div>
+    return;
+}
+
+@if (Model.Project.State is ProjectState.Created)
+{
+    <h3>Project in progress...</h3>
+    return;
+}
+
+<div class="row mb-1">
+    <div class="col-sm-2"><p class="mb-0">Author</p></div>
+    <div class="col-sm-10">
+        <a href="/account/profile?id=@Model.Author.Id" class="text-dark btn btn-outline-secondary form-control text-left">@Model.Author.Login</a>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-sm-2"><p class="mb-0">Name</p></div>
+    <div class="col-sm-10">
+        <input type="text" value="@Model.Project.Name" class="form-control" readonly />
+    </div>
+</div>
+

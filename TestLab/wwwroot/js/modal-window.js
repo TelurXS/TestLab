@@ -1,4 +1,5 @@
 ﻿
+
 const modal_window = $("[modal-window]");
 const modal_open = $("[modal-open]");
 const modal_close = $("[modal-close]");

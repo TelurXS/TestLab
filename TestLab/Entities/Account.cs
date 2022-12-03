@@ -44,7 +44,7 @@ namespace TestLab.Entities
                 Phone = "",
                 Email = email,
                 Address = "",
-                ProfileImage = Config.Account.DefaultProfileImage,
+                ProfileImage = Config.Accounts.DefaultProfileImage,
                 BirthDate = DateTime.Now,
                 RegistrationDate = DateTime.Now,
                 State = AccountState.User,
