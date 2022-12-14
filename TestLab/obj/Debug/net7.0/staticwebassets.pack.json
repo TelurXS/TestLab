@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\js\\dashboard\\stats.js"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\editor\\editor.js",
+      "PackagePath": "staticwebassets\\js\\editor\\editor.js"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\image-peview.js",
       "PackagePath": "staticwebassets\\js\\image-peview.js"
     },
@@ -177,6 +181,290 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\ckeditor.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\ckeditor.js.map",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\ckeditor.js.map"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\af.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\af.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ar.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ar.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ast.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ast.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\az.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\az.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\bg.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\bg.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\bn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\bn.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\bs.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\bs.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ca.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ca.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\cs.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\cs.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\da.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\da.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\de-ch.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\de-ch.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\de.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\de.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\el.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\el.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\en-au.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\en-au.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\en-gb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\en-gb.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\eo.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\eo.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\es-co.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\es-co.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\es.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\es.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\et.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\et.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\eu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\eu.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\fa.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\fa.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\fi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\fi.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\fr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\fr.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\gl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\gl.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\gu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\gu.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\he.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\he.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\hi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\hi.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\hr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\hr.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\hu.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\hu.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\id.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\id.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\it.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\it.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ja.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ja.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\jv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\jv.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\kk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\kk.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\km.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\km.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\kn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\kn.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ko.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ko.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ku.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ku.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\lt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\lt.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\lv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\lv.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ms.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ms.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\nb.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\nb.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ne.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ne.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\nl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\nl.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\no.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\no.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\oc.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\oc.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\pl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\pl.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\pt-br.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\pt-br.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\pt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\pt.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ro.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ro.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ru.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ru.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\si.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\si.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\sk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\sk.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\sl.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\sl.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\sq.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\sq.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\sr-latn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\sr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\sr.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\sv.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\sv.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\th.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\th.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\tk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\tk.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\tr.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\tr.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\tt.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\tt.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ug.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ug.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\uk.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\uk.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\ur.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\ur.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\uz.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\uz.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\vi.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\vi.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\zh-cn.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\ckeditor\\translations\\zh.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor\\translations\\zh.js"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -229,76 +517,68 @@
       "PackagePath": "staticwebassets\\posts\\images\\23b87826-af83-47c8-9c58-effd8e0cb51f.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\008212db-eac1-4878-b8f3-4e193ef1f6c0.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\008212db-eac1-4878-b8f3-4e193ef1f6c0.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\2602a8c1-1079-44dd-bf39-3c4b3190666f.jpg",
+      "PackagePath": "staticwebassets\\posts\\images\\2602a8c1-1079-44dd-bf39-3c4b3190666f.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\173120c1-5bf6-4195-9acd-d23f4e7ba0c2.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\173120c1-5bf6-4195-9acd-d23f4e7ba0c2.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\76264b57-a383-4602-8b85-277d2f60eaf5.jpg",
+      "PackagePath": "staticwebassets\\posts\\images\\76264b57-a383-4602-8b85-277d2f60eaf5.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\290e689b-dc66-4863-8bf1-bf09fb526852.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\290e689b-dc66-4863-8bf1-bf09fb526852.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\a179af13-79b9-49e6-9653-c512c9a9f87c.png",
+      "PackagePath": "staticwebassets\\posts\\images\\a179af13-79b9-49e6-9653-c512c9a9f87c.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\35c53b12-0e57-4838-a16f-0db9ccc1ccef.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\35c53b12-0e57-4838-a16f-0db9ccc1ccef.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\a383ab82-8e70-48a3-b8f4-716ec902a2e7.png",
+      "PackagePath": "staticwebassets\\posts\\images\\a383ab82-8e70-48a3-b8f4-716ec902a2e7.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\5b6518c1-c38c-4615-a305-6bfd7eb79504.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\5b6518c1-c38c-4615-a305-6bfd7eb79504.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\a4dfa027-68c0-4d94-8d92-52854bf5e49f.jpg",
+      "PackagePath": "staticwebassets\\posts\\images\\a4dfa027-68c0-4d94-8d92-52854bf5e49f.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\637bc1f5-afe8-431a-a3ab-584dc3771659.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\637bc1f5-afe8-431a-a3ab-584dc3771659.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\cfd4021d-de37-4353-b73b-d9af882d654d.jpg",
+      "PackagePath": "staticwebassets\\posts\\images\\cfd4021d-de37-4353-b73b-d9af882d654d.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\67c3c73e-2518-4656-adcc-fefaed159a70.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\67c3c73e-2518-4656-adcc-fefaed159a70.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\871dfcd1-1780-45b7-9bbc-c9c553e874a6.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\871dfcd1-1780-45b7-9bbc-c9c553e874a6.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\68088c2e-d06f-40ec-ac20-f3056a8be61f.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\68088c2e-d06f-40ec-ac20-f3056a8be61f.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg",
+      "PackagePath": "staticwebassets\\projects\\resources\\a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\8bf53b6c-6f10-47c9-9237-ee9ca9478081.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\8bf53b6c-6f10-47c9-9237-ee9ca9478081.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\d758a5bd-b7fc-42d8-869f-286eb3e4506b.png",
+      "PackagePath": "staticwebassets\\projects\\resources\\d758a5bd-b7fc-42d8-869f-286eb3e4506b.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\8efcf4ee-1fbe-436d-939e-fc7aadb5dc0c.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\8efcf4ee-1fbe-436d-939e-fc7aadb5dc0c.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\eaa8c3d8-92f8-4f3a-908d-23819507973c.png",
+      "PackagePath": "staticwebassets\\projects\\resources\\eaa8c3d8-92f8-4f3a-908d-23819507973c.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\ab30545e-9fa2-45c8-bcb2-8dff07f4239b.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\ab30545e-9fa2-45c8-bcb2-8dff07f4239b.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\fe922529-24c4-49ed-9eee-3e04d6ffdbc5.png",
+      "PackagePath": "staticwebassets\\projects\\resources\\fe922529-24c4-49ed-9eee-3e04d6ffdbc5.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\ae0f55c4-8628-4317-9ad0-ec33501b2989.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\ae0f55c4-8628-4317-9ad0-ec33501b2989.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\results\\36a85e77-9a41-47e6-b87e-08d9b14f2358.jpg",
+      "PackagePath": "staticwebassets\\projects\\results\\36a85e77-9a41-47e6-b87e-08d9b14f2358.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\ae69803e-ccf5-4cf8-81a1-cb16bb2974c1.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\ae69803e-ccf5-4cf8-81a1-cb16bb2974c1.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\results\\5d976509-30e6-48e9-8434-cb90455a2c67.jpg",
+      "PackagePath": "staticwebassets\\projects\\results\\5d976509-30e6-48e9-8434-cb90455a2c67.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\bcd4aa05-0387-4941-978a-990fad974713.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\bcd4aa05-0387-4941-978a-990fad974713.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\results\\92325156-f7ac-41a1-8a3e-f81de7fb7d48.png",
+      "PackagePath": "staticwebassets\\projects\\results\\92325156-f7ac-41a1-8a3e-f81de7fb7d48.png"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\c332f775-4994-4c3d-9db1-7518514eb981.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\c332f775-4994-4c3d-9db1-7518514eb981.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\results\\ffecadab-ea93-4bbf-80c9-4e8f47d76ca1.jpg",
+      "PackagePath": "staticwebassets\\projects\\results\\ffecadab-ea93-4bbf-80c9-4e8f47d76ca1.jpg"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\c99b9767-7745-43d8-b783-cdb1c069d4b7.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\c99b9767-7745-43d8-b783-cdb1c069d4b7.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\cac41ce6-1c44-4e07-8d49-5b0fe7d42332.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\cac41ce6-1c44-4e07-8d49-5b0fe7d42332.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\e934c520-523d-463c-8595-1f87efc79b40.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\e934c520-523d-463c-8595-1f87efc79b40.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\31878ba5-bb22-4a02-afde-c051a2f163cb.jpg",
+      "PackagePath": "staticwebassets\\users\\images\\31878ba5-bb22-4a02-afde-c051a2f163cb.jpg"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\9c5656eb-bd7e-444f-865e-8012fad99096.png",
@@ -307,10 +587,6 @@
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\b1ba3b26-5c31-49e6-9763-684a2033f6bd.jpg",
       "PackagePath": "staticwebassets\\users\\images\\b1ba3b26-5c31-49e6-9763-684a2033f6bd.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\users\\images\\b8372467-11b4-43fa-8e09-8f8ac59a7d90.jpg",
-      "PackagePath": "staticwebassets\\users\\images\\b8372467-11b4-43fa-8e09-8f8ac59a7d90.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.TestLab.Microsoft.AspNetCore.StaticWebAssets.props",

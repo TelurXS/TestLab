@@ -35,5 +35,11 @@ namespace TestLab.DataBase
         {
             return Context.Save();
         }
+
+        public bool Insert(Post post) 
+        {
+            Collection.Add(post);
+            return Save();
+        }
     }
 }

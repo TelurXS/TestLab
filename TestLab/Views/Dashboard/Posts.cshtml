@@ -46,7 +46,7 @@
                         <form asp-controller="dashboard" asp-action="releasepost" method="post">
                             <input type="hidden" name="id" value="@post.Id" />
                             <button type="submit" class="btn btn-outline-success m-1">
-                                <i class="bi bi-check-lg"></i>Release
+                                <i class="bi bi-check-lg"></i> Release
                             </button>
                         </form>
                     }
@@ -136,10 +136,11 @@
             </div>
 
             <div class="m-3">
-                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i>Save</button>
-                <a post-reset class="btn btn-outline-danger text-danger"><i class="bi bi-arrow-counterclockwise"></i>Reset</a>
-                <a href="/news/post?id=0" id="watchPost" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i>Watch Post</a>
-                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i>Close</a>
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i> Save</button>
+                <a post-reset class="btn btn-outline-danger text-danger"><i class="bi bi-arrow-counterclockwise"></i> Reset</a>
+                <a href="/news/post?id=0" id="watchPost" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i> Watch Post</a>
+                <a href="/editor?id=0" id="editPost" class="btn btn-outline-info text-info"><i class="bi bi-pen"></i> Edit</a>
+                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i> Close</a>
             </div>
 
         </form>

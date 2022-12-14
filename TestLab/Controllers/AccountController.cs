@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using TestLab.DataBase;
 using TestLab.Entities;
+using TestLab.Entities.Projects;
 using TestLab.Models;
 using TestLab.Utils;
 using TestLab.Utils.Files;
@@ -223,6 +224,25 @@ namespace TestLab.Controllers
             account.ProfileImage = name;
 
             Accounts.Save();
+
+            return Redirect("/account/myprofile");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProject([DefaultValue("")] int id) 
+        {
+            Project project = Projects.GetOne(id);
+
+            if (project is not null)
+            {
+                Account account = Accounts.GetBySession(User);
+
+                if (project.AuthorId == account.Id)
+                {
+                    Projects.Remove(project);
+                    project.DeleteFiles();
+                }
+            }
 
             return Redirect("/account/myprofile");
         }

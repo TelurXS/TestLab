@@ -41,5 +41,11 @@ namespace TestLab.DataBase
             Collection.Add(project);
             return Save();
         }
+
+        public bool Remove(Project project) 
+        {
+            Collection.Remove(project);
+            return Context.Save();
+        }
     }
 }

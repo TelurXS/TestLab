@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Editor";
+}
+@model EditorViewModel
+
+<h1>Editor</h1>
+
+<div id="messageHolder">
+    @await Component.InvokeAsync("Message", Model)
+</div>
+
+<div class="row mb-2">
+
+    <input type="hidden" name="id" value="@Model.Post?.Id" />
+
+    <div class="col-lg-4">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" value="@Model.Post?.Title"/>
+    </div>
+    <div class="col-lg-4">
+        <label>Description</label>
+        <textarea class="form-control" name="description">@Model.Post?.Description</textarea>
+    </div>
+    <div class="col-lg-4">
+        <label>Image</label>
+        <input type="file" name="image" class="form-control-file" />
+    </div>
+</div>
+
+<div id="editor">@Html.Raw(Model.Post?.Content)</div>
+
+<div class="mt-2">
+    <button id="save" class="btn btn-outline-success">
+    @if (Model.Post is null)
+    {
+        <span>Create</span>
+    }
+    else 
+    {
+        <span>Save</span>
+    }
+    </button>
+</div>
+
+
+<script src="~/lib/ckeditor/ckeditor.js" defer></script>
+<script src="~/js/editor/editor.js" defer></script>

@@ -26,5 +26,20 @@ namespace TestLab.Entities
         public DateTime ReleaseDate { get; set; }
 
         public PostState State { get; set; }
+
+        public static Post Create(string title, string description, string content, int authorId) 
+        {
+            return new Post
+            {
+                Title = title,
+                Description = description,
+                Content = content,
+                Image = Config.Posts.DefaultPostImage,
+                AuthorId = authorId,
+                CreationDate = DateTime.Now,
+                ReleaseDate = DateTime.Now,
+                State = PostState.Created,
+            };
+        }
     }
 }

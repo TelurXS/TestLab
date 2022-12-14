@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using TestLab.Entities;
+using TestLab.Entities.Projects;
 
 namespace TestLab
 {
@@ -47,11 +48,21 @@ namespace TestLab
             public static readonly string PostsImageDirectory = "/posts/images/";
             public static readonly string ProjectsResourcesDirectory = "/projects/resources/";
             public static readonly string ProjectsResultsDirectory = "/projects/results/";
+        }
 
-            public static readonly List<string> SupportedImageContentTypes = new List<string>
+        public static class Projects
+        {
+            public static readonly Dictionary<ProjectType, string> PossibleTypes = new Dictionary<ProjectType, string>()
             {
-                "image/jpeg",
+                { ProjectType.PngToJpg, "(Image Convertation) Png To Jpg" },
+                { ProjectType.JpgToPng, "(Image Convertation) Jpg To Png" },
             };
+        }
+
+        public static class Editor 
+        {
+            public static AccountState EnterPermission = AccountState.Redactor;
+            public static AccountState EditPermission = AccountState.Administrator;
         }
     }
 }

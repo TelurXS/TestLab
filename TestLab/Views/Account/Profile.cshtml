@@ -7,7 +7,7 @@
 <section>
     <div class="row">
         <div class="col-lg-4">
-            <div class="card mb-4">
+            <div class="card mb-4 shadow">
                 <div class="card-body text-center">
                     <img src="@Model.ProfileImage" alt="avatar"
                          class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card mb-4 mb-lg-0">
+            <div class="card mb-4 mb-lg-0 shadow">
                 <div class="card-body p-0">
                     <ul class="list-group list-group-flush rounded-3">
                         <li class="list-group-item d-flex justify-content-center align-items-center p-3">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-lg-8">
-            <div class="card mb-4">
+            <div class="card mb-4 shadow">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-3"><p class="mb-0">Full Name</p></div>
@@ -99,7 +99,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card mb-4 mb-md-0">
+                    <div class="card mb-4 mb-md-0 shadow">
                         @{
                             var statsGroups = Model.Projects.GroupBy(x => x.Type);
                             float total = Model.Projects.Count();
@@ -113,7 +113,7 @@
                             {
                                 int value = (int)(group.Count() / total * 100);
 
-                                <p class="mt-4 mb-1" style="font-size: .77rem;">@group.Key (@group.Count()) - @value%</p>
+                                <p class="mt-4 mb-1" style="font-size: .77rem;">@group.Key.ToString().SplitWithSpaces() (@group.Count()) - @value%</p>
                                 <div class="progress rounded" style="height: 5px;">
                                     <div class="progress-bar" role="progressbar" style="width: @value%" aria-valuenow="@value"
                                          aria-valuemin="0" aria-valuemax="100"></div>
@@ -136,7 +136,7 @@
                             {
                                 int value = (int)(group.Count() / total * 100);
 
-                                <p class="mt-4 mb-1" style="font-size: .77rem;">@group.Key (@group.Count()) - @value%</p>
+                                <p class="mt-4 mb-1" style="font-size: .77rem;">@group.Key.ToString().SplitWithSpaces() (@group.Count()) - @value%</p>
                                 <div class="progress rounded" style="height: 5px;">
                                     <div class="progress-bar" role="progressbar" style="width: @value%" aria-valuenow="@value"
                                          aria-valuemin="0" aria-valuemax="100"></div>

@@ -14,21 +14,25 @@
     <button class="btn btn-primary ml-3" id="apply">Apply</button>
 </div>
 
-<div class="d-flex flex-wrap justify-content-around align-content-around">
+<div class="row flex-wrap">
 
     @foreach (Post post in Model.GetByCurrentPage())
     {
-        <div class="card mb-4" style="width: 18rem;">
-            <img class="card-img-top" src="@post.Image" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@post.Title</h5>
-                <p class="card-text">@post.Description</p>
-                <p class="text-muted">@post.ReleaseDate</p>
-                <a href="/news/post?id=@post.Id" class="btn btn-primary">Read More</a>
+        // flex-wrap justify-content-around align-content-around
+        <div class="col-lg-4 d-flex justify-content-center mb-4">
+            <div class="card shadow" style="width: 260px;">
+                <div class="card-img-top bg-secondary d-flex justify-content-center" style="height: 140px">
+                    <img class="img-fluid" src="@post.Image" alt="Card image cap" style="height: 140px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@post.Title</h5>
+                    <p class="card-text">@post.Description</p>
+                    <p class="text-muted">@post.ReleaseDate</p>
+                    <a href="/news/post?id=@post.Id" class="btn btn-primary">Read More</a>
+                </div>
             </div>
         </div>
     }
-
 </div>
 
 @await Component.InvokeAsync("Pagination", Model.ViewModel )

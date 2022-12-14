@@ -49,9 +49,19 @@ namespace TestLab.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(ProjectType type)
         {
-            return View();
+            Account account = Accounts.GetBySession(User);
+
+            if (account is null) 
+                return Redirect("/account/login");
+
+            ProjectCreateViewModel model = new ProjectCreateViewModel
+            {
+                Type = type,
+            };
+
+            return View(model);
         }
 
         [HttpPost]
@@ -59,9 +69,13 @@ namespace TestLab.Controllers
         {
             Account account = Accounts.GetBySession(User);
 
-            if (account is null) return Redirect("/account/login");
+            if (account is null) 
+                return Redirect("/account/login");
 
-            MessageViewModel model = new MessageViewModel();
+            ProjectCreateViewModel model = new ProjectCreateViewModel
+            {
+                Type = type,
+            };
 
             if (new TextValidator(name, "Name").Max(128).IsInvalid)
             {

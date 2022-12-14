@@ -21,17 +21,90 @@
     return;
 }
 
-<div class="row mb-1">
-    <div class="col-sm-2"><p class="mb-0">Author</p></div>
+<div class="row mb-1 mt-1">
+    <div class="col-sm-2"><p class="mt-1">Author</p></div>
     <div class="col-sm-10">
-        <a href="/account/profile?id=@Model.Author.Id" class="text-dark btn btn-outline-secondary form-control text-left">@Model.Author.Login</a>
+        <a href="/account/profile?id=@Model.Author.Id" class="text-dark form-control">@Model.Author.Login</a>
     </div>
 </div>
 
 <div class="row mb-1">
-    <div class="col-sm-2"><p class="mb-0">Name</p></div>
+    <div class="col-sm-2"><p class="mt-1">Name</p></div>
     <div class="col-sm-10">
-        <input type="text" value="@Model.Project.Name" class="form-control" readonly />
+        <div class="form-control">@Model.Project.Name</div>
     </div>
 </div>
 
+<div class="row mb-1">
+    <div class="col-sm-2"><p class="mt-1">Created</p></div>
+    <div class="col-sm-10">
+        <div class="form-control">@Model.Project.CreationDate</div>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-sm-2"><p class="mt-1">Type</p></div>
+    <div class="col-sm-10">
+        <div class="form-control">@Model.Project.Type.ToString().SplitWithSpaces()</div>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-sm-2"><p class="mt-1">State</p></div>
+    <div class="col-sm-10">
+        <div class="form-control">@Model.Project.State</div>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-sm-2"><p class="mt-1">Resource</p></div>
+    <div class="col-sm-10">
+        <a href="@Model.Project.Resource" class="btn btn-primary" download>
+            <i class="bi bi-download"></i> Download
+        </a>
+    </div>
+</div>
+
+<hr>
+
+@if (Model.Project.State is ProjectState.Completed)
+{
+    <div class="row mb-1">
+        <div class="col-sm-2"><p class="mt-1">Result</p></div>
+        <div class="col-sm-10">
+
+            @switch (Model.Project.ResultType)
+            {
+                case ProjectResultType.Message:
+
+                    @await Component.InvokeAsync("Message", new MessageViewModel { Message = Model.Project.Result, MessageType = MessageType.Warning })
+                    break;
+
+                case ProjectResultType.Image:
+
+                    <div>
+                        <a href="@Model.Project.Result" class="btn btn-primary" download>
+                            <i class="bi bi-download"></i> Download
+                        </a>
+                        <div class="row bg-dark rounded justify-content-center align-items-start mt-1">
+                            <img src="@Model.Project.Result" alt="@Model.Project.Result" height="200" class="p-1 text-light" />
+                        </div>
+                    </div>
+                    break;
+
+                case ProjectResultType.File:
+
+                    <div>
+                        <a href="@Model.Project.Result" class="btn btn-primary" download>
+                            <i class="bi bi-download"></i> Download
+                        </a>
+                    </div>
+                    break;
+            }
+        </div>
+    </div>
+}
+else
+{
+    @await Component.InvokeAsync("Message", new MessageViewModel { Message = Model.Project.Result, MessageType = MessageType.Danger })
+}

@@ -72,5 +72,25 @@ namespace TestLab.Utils.Files
             Replace(file, previousName, out newName, Config.Accounts.DefaultProfileImage, Config.Files.UsersImageDirectory);
         public bool ReplacePostImage(IFormFile file, string previousName, out string newName) =>
             Replace(file, previousName, out newName, Config.Posts.DefaultPostImage, Config.Files.PostsImageDirectory);
+
+        public string FullPathOf(string localFileName) 
+        {
+            return Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + localFileName);
+        }
+
+        public string UniqueFileName() 
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        public string GetDirectory() 
+        {
+            return Directory.GetCurrentDirectory();
+        }
+
+        public string ExtensionOf(string file) 
+        {
+            return Path.GetExtension(file).ToLower();
+        }
     }
 }

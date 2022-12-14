@@ -8,57 +8,124 @@
     { year: 2016, count: 28 },
 ];
 
-new Chart(
-    document.getElementById('line'),
+const administratorsList = $("#administrators");
+
+// Projects Line Chart
+$.ajax({
+    type: "GET",
+    dataType: 'json',
+    url: `/api/GetProjectsGroupedByDay`,
+
+    success: (response) =>
     {
-        type: 'line',
-        options: {
-            responsive: true,
-        },
-        data: {
-            labels: data.map(row => row.year),
-            datasets: [
-                {
-                    label: 'Acquisitions by year',
-                    data: data.map(row => row.count)
+        new Chart(
+            document.getElementById('line'),
+            {
+                type: 'line',
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                },
+                data: {
+                    labels: response.map(row => new Date(row[0].creationDate).toLocaleDateString()),
+                    datasets: [
+                        {
+                            label: 'Projects count per day',
+                            data: response.map(row => row.length)
+                        }
+                    ]
                 }
-            ]
-        }
-    }
-);
-new Chart(
-    document.getElementById('radar'),
+            }
+        );
+    },
+    error: () => { }
+});
+
+// Administratots List
+$.ajax({
+    type: "GET",
+    dataType: 'json',
+    url: `/api/GetAdministrators`,
+
+    success: (response) =>
     {
-        type: 'radar',
-        options: {
-            responsive: true,
-        },
-        data: {
-            labels: data.map(row => row.year),
-            datasets: [
-                {
-                    label: 'Acquisitions by year',
-                    data: data.map(row => row.count)
+        response.forEach((item) => {
+            administratorsList.append($(
+                `<li class='list-group-item mb-1 d-flex justify-content-between''>
+                    <div>
+                        <img src='${item.profileImage}' alt='Profile' class='img-fluid' style='width: 35px' />
+                        <span class='ml-2' style='font-size: 1.2rem'>${item.login}</span>
+                    </div>
+                    <a href='/account/profile?id=${item.id}' class='btn btn-outline-primary text-primary'>Profile</a>
+                </li>`
+            )) 
+        });
+    },
+    error: () => { }
+});
+
+// Projects Types Pie Chart
+$.ajax({
+    type: "GET",
+    dataType: 'json',
+    url: `/api/GetProjectsTypesStats`,
+
+    success: (response) => {
+
+        new Chart(
+            document.getElementById('pie'),
+            {
+                type: 'pie',
+                options: {
+                    responsive: true,
+                },
+                data: {
+                    labels: response.map(row => row.key),
+                    datasets: [
+                        {
+                            label: 'Project Types Total',
+                            data: response.map(row => row.value)
+                        }
+                    ]
                 }
-            ]
-        }
-    }
-);
-new Chart(
-    document.getElementById('pie'),
-    {
-        type: 'pie',
-        options: {
-            responsive: true,
-        },
-        data: {
-            labels: data.map(row => row.year),
-            datasets: [
-                {
-                    label: 'Acquisitions by year',
-                    data: data.map(row => row.count)
+            }
+        );
+    },
+    error: () => { }
+});
+
+// Posts Bar Chart
+$.ajax({
+    type: "GET",
+    dataType: 'json',
+    url: `/api/GetPostsGroupedByDay`,
+
+    success: (response) => {
+
+        console.dir(response);
+
+        new Chart(
+            document.getElementById('bar'),
+            {
+                type: 'bar',
+                options: {
+                    responsive: true,
+                },
+                data: {
+                    labels: response.map(row => new Date(row.key).toLocaleDateString()),
+                    datasets: [
+                        {
+                            label: 'Posts count per day',
+                            data: response.map(row => row.value)
+                        }
+                    ]
                 }
-            ]
-        }
-    }
-);
+            }
+        );
+    },
+    error: () => { }
+});

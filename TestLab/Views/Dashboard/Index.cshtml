@@ -4,18 +4,53 @@
 
 @await Component.InvokeAsync("DashboardSidebar", "Stats")
 
-<div class="d-flex flex-wrap align-content-center justify-content-around align-items-center">
-    <div>
-        <canvas id="pie"></canvas>
+<section>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4 shadow">
+                <div class="card-header">
+                    Projects types stats
+                </div>
+                <div class="card-body">
+                    <div>
+                        <canvas id="pie"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 mb-lg-0 shadow">
+                <div class="card-header">
+                    Posts count per day
+                </div>
+                <div class="card-body">
+                    <div>
+                        <canvas id="bar"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card mb-4 shadow">
+                <div class="card-header">
+                    Project count per day
+                </div>
+                <div class="card-body">
+                    <div>
+                        <canvas id="line"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 shadow">
+                <div class="card-header">
+                    Administrators
+                </div>
+                <div class="card-body">
+                    <ul id="administrators" class="list-group">
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <canvas id="radar"></canvas>
-    </div>
-</div>
-<div class="d-flex justify-content-center">
-    <canvas id="line"></canvas>
-</div>
-
+</section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script src="~/js/dashboard/stats.js" defer></script>

@@ -55,6 +55,11 @@
                                     <a class="dropdown-item" href="/dashboard">Dashboard</a>
                                 }
 
+                                @if (Model.Account.HavePermission(Config.Editor.EnterPermission))
+                                {
+                                    <a class="dropdown-item" href="/editor">Create Post</a>
+                                }
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/account/signout">Sign Out</a>
                             }

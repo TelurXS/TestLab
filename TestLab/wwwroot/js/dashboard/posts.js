@@ -12,6 +12,7 @@ var postImageInput = $("[name=postImage]");
 var stateInput = $("[name=state]");
 
 var watchPost = $("#watchPost");
+var editPost = $("#editPost");
 var postReset = $("[post-reset]");
 
 const FillFields = (id) => {
@@ -34,6 +35,7 @@ const FillFields = (id) => {
             stateInput.val(response.state);
 
             watchPost.attr("href", `/news/post?id=${response.id}`);
+            editPost.attr("href", `/editor?id=${response.id}`);
             postReset.click(() => { FillFields(response.id) });
         },
         error: () => {

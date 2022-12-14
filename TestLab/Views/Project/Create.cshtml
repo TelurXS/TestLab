@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Create Project";
 }
-@model MessageViewModel
+@model ProjectCreateViewModel
 
 <div>
     <h2>Create Project</h2>
@@ -31,8 +31,19 @@
             <div class="col-sm-2"><p class="mb-0 mt-2">Type</p></div>
             <div class="col-sm-10">
                 <select name="type" class="form-control text-muted">
-                    <option value="0">Png To Jpg</option>
-                    <option value="1">Jpg To Png</option>
+
+                    @foreach (var item in Config.Projects.PossibleTypes)
+                    {
+                        if (Model.Type == item.Key)
+                        {
+                            <option value="@((int)item.Key)" selected>@item.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@((int)item.Key)">@item.Value</option>
+                        }
+                    }
+
                 </select>
             </div>
         </div>

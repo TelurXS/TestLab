@@ -24,6 +24,13 @@ namespace TestLab.Entities.Projects
         Public,
     }
 
+    public enum ProjectResultType 
+    {
+        Message,
+        Image,
+        File,
+    }
+
     public class Project
     {
         public int Id { get; set; }
@@ -37,6 +44,7 @@ namespace TestLab.Entities.Projects
         public ProjectType Type { get; set; }
         public ProjectState State { get; set; }
         public ProjectAccessability Accessability { get; set; }
+        public ProjectResultType ResultType { get; set; }
 
         public static Project Create(string name, int authorId, string resource, ProjectType type, ProjectAccessability accessability) 
         {
@@ -49,7 +57,8 @@ namespace TestLab.Entities.Projects
                 Result = "",
                 Type = type,
                 State = ProjectState.Created,
-                Accessability = accessability
+                Accessability = accessability,
+                ResultType = ProjectResultType.Message,
             };
         }
 
@@ -60,7 +69,7 @@ namespace TestLab.Entities.Projects
                 case ProjectType.PngToJpg: return new PngToJpgExecutor(this);
                 case ProjectType.JpgToPng: return new JpgToPngExecutor(this);
 
-                default: throw new ArgumentOutOfRangeException();
+                default: throw new Exception("No executor for this ProjectType");
             }
         }
 
