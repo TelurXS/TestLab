@@ -27,7 +27,7 @@
         <td class="d-table-cell">Controls</td>
     </tr>
 
-    @foreach (Post post in Model.Posts)
+    @foreach (Post post in Model.Posts.GetByCurrentPage())
     {
         <tr class="d-table-row">
             <td class="d-table-cell">@post.Id</td>

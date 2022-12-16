@@ -31,12 +31,6 @@ namespace TestLab.Controllers
         public FileParser Parser { get; set; }
 
         [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public IActionResult Login()
         {
             return View();

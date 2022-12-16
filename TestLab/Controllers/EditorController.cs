@@ -17,10 +17,12 @@ namespace TestLab.Controllers
 
             Accounts = new Accounts(context);
             Posts = new Posts(context);
+            Parser = new FileParser();
         }
 
         public Accounts Accounts { get; set; }
         public Posts Posts { get; set; }
+        public FileParser Parser { get; set; }
 
         [HttpGet]
         public IActionResult Index([DefaultValue(0)] int id)
@@ -31,7 +33,7 @@ namespace TestLab.Controllers
                 return Redirect("/account/login");
 
             if (account.HavePermission(Config.Editor.EnterPermission) is false)
-                return Redirect("DontHavePermission");
+                return View("DontHavePermission");
 
             Post post = Posts.GetOne(id);
             Account author = Accounts.GetOne(post?.Id ?? 0);
@@ -59,7 +61,7 @@ namespace TestLab.Controllers
 
             if(image is not null) 
             {
-                if (new FileParser().ReplacePostImage(image, "", out string fileName))
+                if (Parser.ReplacePostImage(image, "", out string fileName))
                     post.Image = fileName;
             }
 
@@ -90,7 +92,7 @@ namespace TestLab.Controllers
 
             if (image is not null)
             {
-                if(new FileParser().ReplacePostImage(image, "", out string fileName))
+                if(Parser.ReplacePostImage(image, post.Image, out string fileName))
                     post.Image = fileName;
             }
 

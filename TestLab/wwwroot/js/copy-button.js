@@ -1,4 +1,9 @@
 ﻿
-var copy_buttons = $("button[copy]").first();
+const Copy = (e) =>
+{
+    navigator.clipboard.writeText(window.location);
+}
 
-console.log(copy_buttons);
+var copy_buttons = $("button[copy]");
+
+copy_buttons.click(Copy)

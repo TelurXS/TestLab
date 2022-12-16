@@ -6,6 +6,7 @@ using System.ComponentModel;
 using TestLab.DataBase;
 using TestLab.Entities;
 using TestLab.Entities.Pagination;
+using TestLab.Entities.Projects;
 using TestLab.Models;
 using TestLab.Utils.Files;
 using TestLab.Utils.Validation;
@@ -20,11 +21,13 @@ namespace TestLab.Controllers
 
             AccountsCollection = new Accounts(context);
             PostsCollection = new Posts(context);
+            ProjectsCollection = new Projects(context);
             Parser = new FileParser();
         }
 
         public Accounts AccountsCollection { get; set; }
         public Posts PostsCollection { get; set; }
+        public Projects ProjectsCollection { get; set; }
         public FileParser Parser { get; set; }
 
         public bool IsAuthenticated => User.Identity.IsAuthenticated;
@@ -60,6 +63,19 @@ namespace TestLab.Controllers
             if (IsAuthenticated && HavePermission(Config.Dashboard.RequiredPermission))
             {
                 DashboardAccountsViewModel model = GetAccountsViewModel(search, count, page);
+
+                return View(model);
+            }
+
+            return View("DontHavePermission");
+        }
+
+        [HttpGet]
+        public IActionResult Projects([DefaultValue("")] string search, [DefaultValue(1)] int page, [DefaultValue(9)] int count)
+        {
+            if (IsAuthenticated && HavePermission(Config.Dashboard.RequiredPermission))
+            {
+                DashboardProjectsViewModel model = GetProjectsViewModel(search, count, page);
 
                 return View(model);
             }
@@ -247,6 +263,25 @@ namespace TestLab.Controllers
 
             DashboardPostsViewModel model =
                 new DashboardPostsViewModel { Posts = posts, SearchPattern = search };
+
+            return model;
+        }
+
+        private DashboardProjectsViewModel GetProjectsViewModel(string search, int count, int page)
+        {
+            PagenableCollection<Project> projects;
+
+            if (string.IsNullOrEmpty(search))
+            {
+                projects = new PagenableCollection<Project>(ProjectsCollection.GetAll(), count, page, $"/dashboard/projects?search={search}");
+            }
+            else
+            {
+                projects = new PagenableCollection<Project>(ProjectsCollection.Search(search), count, page, $"/dashboard/projects?search={search}");
+            }
+
+            DashboardProjectsViewModel model =
+                new DashboardProjectsViewModel { Projects = projects, SearchPattern = search };
 
             return model;
         }

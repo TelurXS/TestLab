@@ -31,6 +31,11 @@ namespace TestLab.DataBase
             return Collection.Where(x => x.AuthorId == authorId);
         }
 
+        public IEnumerable<Project> Search(string pattern) 
+        {
+            return Collection.Where(x => x.Name.Contains(pattern) || x.Type.ToString().Contains(pattern));
+        }
+
         public bool Save() 
         {
             return Context.Save();

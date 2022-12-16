@@ -1,0 +1,164 @@
+﻿@{
+    ViewData["Title"] = "Projects";
+}
+@using TestLab.Entities.Projects;
+@model DashboardProjectsViewModel;
+
+<link href="~/css/modal-window.css" rel="stylesheet" />
+
+@await Component.InvokeAsync("DashboardSidebar", "Projects")
+@await Component.InvokeAsync("Message", Model)
+
+<h5 class="display-5">Posts</h5>
+<form asp-controller="dashboard" asp-action="projects" method="get">
+    <div class="row">
+        <div class="col-sm-1">@await Component.InvokeAsync("PaginationCountSelector", Model.Projects.ViewModel)</div>
+        <div class="col-sm-10"><input type="search" value="@Model.SearchPattern" name="search" placeholder="Search..." class="form-control mb-1" /></div>
+        <div class="col-sm-1"><button type="submit" class="btn btn-outline-success" id="apply">Apply</button></div>
+    </div>
+</form>
+
+<table class="table">
+    <tr class="d-table-row">
+        <td class="d-table-cell">Id</td>
+        <td class="d-table-cell">Name</td>
+        <td class="d-table-cell">Creation Date</td>
+        <td class="d-table-cell">Type</td>
+        <td class="d-table-cell">State</td>
+        <td class="d-table-cell">Controls</td>
+    </tr>
+
+    @foreach (Project project in Model.Projects.GetByCurrentPage())
+    {
+        <tr class="d-table-row">
+            <td class="d-table-cell">@project.Id</td>
+            <td class="d-table-cell">@project.Name</td>
+            <td class="d-table-cell">@project.CreationDate.ToHtmlDate()</td>
+            <td class="d-table-cell">@project.Type</td>
+            <td class="d-table-cell">@project.State</td>
+            <td class="d-table-cell">
+                <div class="d-flex">
+                    <button modal-data="@project.Id" modal-open class="btn btn-outline-primary m-1">
+                        <i class="bi bi-pen"></i> Edit
+                    </button>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+@await Component.InvokeAsync("Pagination", Model.Projects.ViewModel)
+
+<div class="screen-fade modal-closed" modal-window>
+    <div class="container bg-light rounded p-3 mt-2">
+        <h5>Post</h5>
+
+        <form method="post" asp-controller="dashboard" asp-action="changeprojectinfo" enctype="multipart/form-data">
+
+            <input type="hidden" name="search" value="@Model.SearchPattern" />
+            <input type="hidden" name="count" value="@Model.Projects.CountPerPage" />
+            <input type="hidden" name="page" value="@Model.Projects.CurrentPage" />
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Id</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="id" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Author</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="author" class="text-muted mb-0 form-control" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Name</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="name" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Creation Date</p></div>
+                <div class="col-sm-10">
+                    <input type="date" name="creationDate" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Resource</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="resource" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Result</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="result" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">State</p></div>
+                <div class="col-sm-10">
+                    <select name="state" class="form-control text-muted">
+                        <option value="0">Deleted</option>
+                        <option value="1">Created</option>
+                        <option value="2">Error</option>
+                        <option value="3">Completed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Accessability</p></div>
+                <div class="col-sm-10">
+                    <select name="accessability" class="form-control text-muted">
+                        <option value="0">Private</option>
+                        <option value="1">Public</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Type</p></div>
+                <div class="col-sm-10">
+                    <select name="type" class="form-control text-muted">
+
+                        @foreach (var item in Config.Projects.PossibleTypes)
+                        {
+                            <option value="@((int)item.Key)">@item.Value</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Result Type</p></div>
+                <div class="col-sm-10">
+                    <select name="resultType" class="form-control text-muted">
+                        <option value="0">Message</option>
+                        <option value="1">Image</option>
+                        <option value="2">File</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="m-3">
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i> Save</button>
+                <a post-reset class="btn btn-outline-danger text-danger"><i class="bi bi-arrow-counterclockwise"></i> Reset</a>
+                <a href="/news/post?id=0" id="watchPost" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i> Watch Project</a>
+                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i> Close</a>
+                <a modal-close class="btn btn-outline-danger text-danger"><i class="bi bi-trash"></i> Delete</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/modal-window.js" defer></script>
+<script src="~/js/dashboard/projects.js" defer></script>

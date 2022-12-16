@@ -5,40 +5,54 @@
 
 <h1>Editor</h1>
 
+@if (Model.IsViewAllowed is false)
+{
+    <div class="d-flex align-items-center flex-column mt-5">
+        <h3>Sorry, but you dont have enought permission to enter to this page :(</h3>
+        <img src="~/img/sad-cat.jpg" alt="Sad car :(" style="width: 200px" />
+        <a href="/home" class="btn btn-primary mt-3">To Home Page</a>
+    </div>
+    return;
+}
+
 <div id="messageHolder">
     @await Component.InvokeAsync("Message", Model)
 </div>
 
-<div class="row mb-2">
+<div class="card p-3 mb-4 shadow">
+    <div class="row">
 
-    <input type="hidden" name="id" value="@Model.Post?.Id" />
+        <input type="hidden" name="id" value="@Model.Post?.Id" />
 
-    <div class="col-lg-4">
-        <label>Title</label>
-        <input type="text" name="title" class="form-control" value="@Model.Post?.Title"/>
-    </div>
-    <div class="col-lg-4">
-        <label>Description</label>
-        <textarea class="form-control" name="description">@Model.Post?.Description</textarea>
-    </div>
-    <div class="col-lg-4">
-        <label>Image</label>
-        <input type="file" name="image" class="form-control-file" />
+        <div class="col-lg-4">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" value="@Model.Post?.Title" />
+        </div>
+        <div class="col-lg-4">
+            <label>Description</label>
+            <textarea class="form-control" name="description">@Model.Post?.Description</textarea>
+        </div>
+        <div class="col-lg-4">
+            <label>Image</label>
+            <input type="file" accept="image/*" name="image" class="form-control-file" />
+        </div>
     </div>
 </div>
 
-<div id="editor">@Html.Raw(Model.Post?.Content)</div>
+<div class="card p-1 shadow">
+    <div id="editor">@Html.Raw(Model.Post?.Content)</div>
+</div>
 
-<div class="mt-2">
-    <button id="save" class="btn btn-outline-success">
-    @if (Model.Post is null)
-    {
-        <span>Create</span>
-    }
-    else 
-    {
-        <span>Save</span>
-    }
+<div class="mt-4">
+    <button id="save" class="btn btn-outline-success shadow">
+        @if (Model.Post is null)
+        {
+            <span>Create</span>
+        }
+        else
+        {
+            <span>Save</span>
+        }
     </button>
 </div>
 

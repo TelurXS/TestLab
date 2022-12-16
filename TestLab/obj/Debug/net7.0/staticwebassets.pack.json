@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\modal-window.css"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\post.css",
+      "PackagePath": "staticwebassets\\css\\post.css"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -41,6 +45,14 @@
       "PackagePath": "staticwebassets\\img\\profile.jpg"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\project_create.png",
+      "PackagePath": "staticwebassets\\img\\project_create.png"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\project_result.png",
+      "PackagePath": "staticwebassets\\img\\project_result.png"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\sad-cat.jpg",
       "PackagePath": "staticwebassets\\img\\sad-cat.jpg"
     },
@@ -59,6 +71,10 @@
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\posts.js",
       "PackagePath": "staticwebassets\\js\\dashboard\\posts.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\projects.js",
+      "PackagePath": "staticwebassets\\js\\dashboard\\projects.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\dashboard\\stats.js",
@@ -95,6 +111,10 @@
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\js\\tool-tip.js",
+      "PackagePath": "staticwebassets\\js\\tool-tip.js"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -513,32 +533,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\23b87826-af83-47c8-9c58-effd8e0cb51f.png",
-      "PackagePath": "staticwebassets\\posts\\images\\23b87826-af83-47c8-9c58-effd8e0cb51f.png"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\2602a8c1-1079-44dd-bf39-3c4b3190666f.jpg",
-      "PackagePath": "staticwebassets\\posts\\images\\2602a8c1-1079-44dd-bf39-3c4b3190666f.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\76264b57-a383-4602-8b85-277d2f60eaf5.jpg",
-      "PackagePath": "staticwebassets\\posts\\images\\76264b57-a383-4602-8b85-277d2f60eaf5.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\a179af13-79b9-49e6-9653-c512c9a9f87c.png",
-      "PackagePath": "staticwebassets\\posts\\images\\a179af13-79b9-49e6-9653-c512c9a9f87c.png"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\a383ab82-8e70-48a3-b8f4-716ec902a2e7.png",
-      "PackagePath": "staticwebassets\\posts\\images\\a383ab82-8e70-48a3-b8f4-716ec902a2e7.png"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\a4dfa027-68c0-4d94-8d92-52854bf5e49f.jpg",
-      "PackagePath": "staticwebassets\\posts\\images\\a4dfa027-68c0-4d94-8d92-52854bf5e49f.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\cfd4021d-de37-4353-b73b-d9af882d654d.jpg",
-      "PackagePath": "staticwebassets\\posts\\images\\cfd4021d-de37-4353-b73b-d9af882d654d.jpg"
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\posts\\images\\0d6d4acd-db55-46eb-bf7d-95c9163ba216.png",
+      "PackagePath": "staticwebassets\\posts\\images\\0d6d4acd-db55-46eb-bf7d-95c9163ba216.png"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\871dfcd1-1780-45b7-9bbc-c9c553e874a6.jpg",

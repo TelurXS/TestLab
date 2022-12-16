@@ -25,6 +25,9 @@ const FillFields = (id) =>
         url: `/api/GetAccountById?id=${id}`,
 
         success: (response) => {
+
+            console.dir(response);
+
             idInput.val(response.id);
             loginInput.val(response.login);
             passwordInput.val(response.password);

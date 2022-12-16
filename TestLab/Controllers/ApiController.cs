@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TestLab.DataBase;
 using TestLab.Entities;
+using TestLab.Entities.Projects;
 
 namespace TestLab.Controllers
 {
@@ -25,13 +26,17 @@ namespace TestLab.Controllers
         [HttpGet]
         public IActionResult GetAccountById(int id) 
         {
-            return Json(Accounts.GetOne(id));
+            Account account = Accounts.GetOne(id);
+
+            return Json(account);
         }
 
         [HttpGet]
         public IActionResult GetPostById(int id) 
         {
-            return Json(Posts.GetOne(id));
+            Post post = Posts.GetOne(id);
+
+            return Json(post);
         }
 
         [HttpGet]
@@ -70,6 +75,14 @@ namespace TestLab.Controllers
             }
 
             return Json(posts);
+        }
+
+        [HttpGet]
+        public IActionResult GetProjectById(int id)
+        {
+            Project project = Projects.GetOne(id);
+
+            return Json(project);
         }
     }
 }

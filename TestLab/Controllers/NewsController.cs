@@ -25,7 +25,7 @@ namespace TestLab.Controllers
         [HttpGet]
         public IActionResult Index([DefaultValue(1)] int page, [DefaultValue(9)] int count)
         {
-            IEnumerable<Post> posts = Posts.GetAll();
+            IEnumerable<Post> posts = Posts.GetLatestAvailable();
 
             PagenableCollection<Post> collection =
                 new PagenableCollection<Post>(posts, count, page, "/news");
