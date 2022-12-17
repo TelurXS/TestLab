@@ -33,7 +33,7 @@ namespace TestLab.DataBase
 
         public IEnumerable<Project> Search(string pattern) 
         {
-            return Collection.Where(x => x.Name.Contains(pattern) || x.Type.ToString().Contains(pattern));
+            return Collection.Where(x => x.Name.Contains(pattern));
         }
 
         public bool Save() 

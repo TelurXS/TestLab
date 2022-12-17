@@ -26,27 +26,32 @@ const FillFields = (id) =>
 
         success: (response) => {
 
-            console.dir(response);
+            ResetFields(response);
 
-            idInput.val(response.id);
-            loginInput.val(response.login);
-            passwordInput.val(response.password);
-            nameInput.val(response.name);
-            descriptionInput.val(response.description);
-            phoneInput.val(response.phone);
-            emailInput.val(response.email);
-            addressInput.val(response.address);
-            birthDateInput.val(ToHtmlDate(response.birthDate));
-            registrationDateInput.val(ToHtmlDate(response.registrationDate));
-            stateInput.val(response.state);
-
+            accountReset.off("click")
+            
+            accountReset.click(() => ResetFields(response));
             watchProfile.attr("href", `/account/profile?id=${response.id}`);
-            accountReset.click(() => { FillFields(response.id) });
         },
         error: () => {
             console.log("Server error");
         }
     });
+}
+
+const ResetFields = (response) =>
+{
+    idInput.val(response.id);
+    loginInput.val(response.login);
+    passwordInput.val(response.password);
+    nameInput.val(response.name);
+    descriptionInput.val(response.description);
+    phoneInput.val(response.phone);
+    emailInput.val(response.email);
+    addressInput.val(response.address);
+    birthDateInput.val(ToHtmlDate(response.birthDate));
+    registrationDateInput.val(ToHtmlDate(response.registrationDate));
+    stateInput.val(response.state);
 }
 
 var on_modal_open = (id) => { FillFields(id) }

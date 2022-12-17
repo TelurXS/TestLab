@@ -1,24 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Contacts";
 }
+@model IEnumerable<Worker>
 
 <h1>Contacts</h1>
 
-<div class="card p-3 shadow">
-    <div class="row">
-        <div class="col-lg-4">
-            <img src="/img/logo.png" alt="Image" class="img-fluid"/>
-        </div>
-        <div class="col-lg-8">
-            <h3 class="display-4">Main Developer</h3>
-            <div>
-                <ul class="list-group">
-                    <li class="list-group-item">Name: <strong>Vats Yaroslav</strong></li>
-                    <li class="list-group-item">Phone: <strong>+38(098)435-9669</strong></li>
-                    <li class="list-group-item">Phone: <strong>+38(098)435-9669</strong></li>
-                    <li class="list-group-item">Profile: <strong><a href="/account?profile?id=6">Profile</a></strong></li>
-                </ul>
+@foreach (Worker worker in Model)
+{
+
+    <div class="card p-3 shadow mb-4">
+        <div class="row">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center ">
+                <img src="@worker.Account.ProfileImage" alt="Image" class="img-fluid rounded-circle" height="326" width="326"/>
+            </div>
+            <div class="col-lg-8">
+                <h3 class="display-4">@worker.Profession</h3>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Name: <strong>@worker.Account.Name</strong></li>
+                        <li class="list-group-item">Phone: <strong>@worker.Account.Phone</strong></li>
+                        <li class="list-group-item">Email: <strong>@worker.Account.Email</strong></li>
+                        <li class="list-group-item">Address: <strong>@worker.Account.Address</strong></li>
+                        <li class="list-group-item">Profile: <strong><a href="/account/profile?id=@worker.Account.Id">Profile</a></strong></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}

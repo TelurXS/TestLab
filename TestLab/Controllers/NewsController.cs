@@ -17,10 +17,12 @@ namespace TestLab.Controllers
 
             Posts = new Posts(context);
             Accounts = new Accounts(context);
+            PostLikes = new PostLikes(context);
         }
 
         public Posts Posts { get; set; }
         public Accounts Accounts { get; set; }
+        public PostLikes PostLikes { get; set; }
 
         [HttpGet]
         public IActionResult Index([DefaultValue(1)] int page, [DefaultValue(9)] int count)
@@ -34,8 +36,9 @@ namespace TestLab.Controllers
         }
 
         [HttpGet]
-        public IActionResult Post(int id) 
+        public IActionResult Post(int id)
         {
+            Account account = Accounts.GetBySession(User);
             Post post = Posts.GetOne(id);
 
             if (post is not null)
@@ -46,14 +49,31 @@ namespace TestLab.Controllers
                 {
                     Post = post,
                     Author = author,
+                    IsLiked = account is not null ? PostLikes.IsAccountLikePost(account, post) : false,
+                    LikeCount = PostLikes.LikeCount(post),
                 };
 
                 return View(model);
             }
-            else 
-            {
+
+            return View("PostNotFound");
+        }
+
+        [HttpPost]
+        public IActionResult ToggleLike(int id)
+        {
+            Account account = Accounts.GetBySession(User);
+            Post post = Posts.GetOne(id);
+
+            if (account is null)
+                return Redirect("/account/login");
+
+            if (post is null)
                 return View("PostNotFound");
-            }
+
+            PostLikes.ToogleLike(account, post);
+
+            return Redirect($"/news/post?id={id}");
         }
     }
 }

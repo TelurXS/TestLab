@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\img\\news.png"
     },
     {
+      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\post_image.png",
+      "PackagePath": "staticwebassets\\img\\post_image.png"
+    },
+    {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\profile.jpg",
       "PackagePath": "staticwebassets\\img\\profile.jpg"
     },
@@ -539,10 +543,6 @@
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\871dfcd1-1780-45b7-9bbc-c9c553e874a6.jpg",
       "PackagePath": "staticwebassets\\projects\\resources\\871dfcd1-1780-45b7-9bbc-c9c553e874a6.jpg"
-    },
-    {
-      "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg",
-      "PackagePath": "staticwebassets\\projects\\resources\\a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg"
     },
     {
       "Id": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\d758a5bd-b7fc-42d8-869f-286eb3e4506b.png",

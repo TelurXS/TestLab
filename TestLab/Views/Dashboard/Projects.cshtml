@@ -25,7 +25,9 @@
         <td class="d-table-cell">Creation Date</td>
         <td class="d-table-cell">Type</td>
         <td class="d-table-cell">State</td>
-        <td class="d-table-cell">Controls</td>
+        <td class="d-table-cell">
+            <a href="/project/create" class="btn btn-outline-success"><i class="bi bi-plus-lg"></i> Add</a>
+        </td>
     </tr>
 
     @foreach (Project project in Model.Projects.GetByCurrentPage())
@@ -150,10 +152,10 @@
 
             <div class="m-3">
                 <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i> Save</button>
-                <a post-reset class="btn btn-outline-danger text-danger"><i class="bi bi-arrow-counterclockwise"></i> Reset</a>
-                <a href="/news/post?id=0" id="watchPost" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i> Watch Project</a>
+                <a id="project_reset" class="btn btn-outline-danger text-danger"><i class="bi bi-arrow-counterclockwise"></i> Reset</a>
+                <a id="watch_project" href="/project?id=0" class="btn btn-outline-info text-info"><i class="bi bi-eye"></i> Watch Project</a>
+                <a id="delete_project" href="/dashboard/deleteproject?id=0" class="btn btn-outline-danger text-danger"><i class="bi bi-trash"></i> Delete</a>
                 <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i> Close</a>
-                <a modal-close class="btn btn-outline-danger text-danger"><i class="bi bi-trash"></i> Delete</a>
             </div>
 
         </form>

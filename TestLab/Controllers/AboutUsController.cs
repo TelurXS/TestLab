@@ -1,9 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using System.Collections.Generic;
+using TestLab.DataBase;
+using TestLab.Entities;
 
 namespace TestLab.Controllers
 {
     public class AboutUsController : Controller
     {
+        public AboutUsController()
+        {
+            TestLabContext context = new TestLabContext();
+
+            Workers = new Workers(context);
+        }
+
+        public Workers Workers { get; set; }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -19,7 +32,9 @@ namespace TestLab.Controllers
         [HttpGet]
         public IActionResult Contacts()
         {
-            return View();
+            IEnumerable<Worker> workers = Workers.GetAll();
+
+            return View(workers);
         }
 
         [HttpGet]

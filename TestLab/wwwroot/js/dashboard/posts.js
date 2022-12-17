@@ -23,25 +23,30 @@ const FillFields = (id) => {
 
         success: (response) => {
 
-            console.dir(response)
-            
-            idInput.val(response.id);
-            authorInput.val(response.authorId);
-            titleInput.val(response.title);
-            descriptionInput.val(response.description);
-            contentInput.val(response.content);
-            creationDateInput.val(ToHtmlDate(response.creationDate));
-            releaseDateInput.val(ToHtmlDate(response.releaseDate));
-            stateInput.val(response.state);
+            ResetFieds(response);
 
+            postReset.off("click");
+
+            postReset.click(() => ResetFieds(response));
             watchPost.attr("href", `/news/post?id=${response.id}`);
             editPost.attr("href", `/editor?id=${response.id}`);
-            postReset.click(() => { FillFields(response.id) });
         },
         error: () => {
             console.log("Server error");
         }
     });
+}
+
+const ResetFieds = (response) =>
+{
+    idInput.val(response.id);
+    authorInput.val(response.authorId);
+    titleInput.val(response.title);
+    descriptionInput.val(response.description);
+    contentInput.val(response.content);
+    creationDateInput.val(ToHtmlDate(response.creationDate));
+    releaseDateInput.val(ToHtmlDate(response.releaseDate));
+    stateInput.val(response.state);
 }
 
 var on_modal_open = (id) => { FillFields(id) }

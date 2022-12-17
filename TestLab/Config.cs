@@ -36,6 +36,8 @@ namespace TestLab
                 new Navigation { Icon = "person", Title = "Accounts", Href = "/dashboard/accounts" },
                 new Navigation { Icon = "envelope", Title = "Posts", Href = "/dashboard/posts" },
                 new Navigation { Icon = "file-code",Title = "Projects", Href = "/dashboard/projects" },
+                new Navigation { Icon = "person-workspace",Title = "Workers", Href = "/dashboard/workers" },
+                new Navigation { Icon = "link-45deg",Title = "Navigations", Href = "/dashboard/navigations" },
             };
 
             public static readonly AccountState RequiredPermission = AccountState.Administrator;

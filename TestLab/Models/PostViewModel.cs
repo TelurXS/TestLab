@@ -6,5 +6,7 @@ namespace TestLab.Models
     {
         public Post Post { get; set; }
         public Account Author { get; set; }
+        public bool IsLiked { get; set; }
+        public int LikeCount { get; set; }
     }
 }

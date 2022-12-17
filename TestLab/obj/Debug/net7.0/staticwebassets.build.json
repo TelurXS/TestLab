@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ehKVGmddn/keRr9d5VgF01yLOAFHyYOqWqBtq02zlKo=",
+  "Hash": "1eObU/G7tdP3OSomqp5ROi0kKKyRqshiVqcMeROglOo=",
   "Source": "TestLab",
   "BasePath": "_content/TestLab",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\news.png"
+    },
+    {
+      "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\post_image.png",
+      "SourceId": "TestLab",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\",
+      "BasePath": "_content/TestLab",
+      "RelativePath": "img/post_image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\post_image.png"
     },
     {
       "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\img\\profile.jpg",
@@ -2310,23 +2327,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\projects\\resources\\871dfcd1-1780-45b7-9bbc-c9c553e874a6.jpg"
-    },
-    {
-      "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg",
-      "SourceId": "TestLab",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\",
-      "BasePath": "_content/TestLab",
-      "RelativePath": "projects/resources/a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\projects\\resources\\a4b6399a-de9d-45f2-b9fa-88f8dee575a5.jpg"
     },
     {
       "Identity": "D:\\Projects\\Курсовий проект\\TestLab\\TestLab\\wwwroot\\projects\\resources\\d758a5bd-b7fc-42d8-869f-286eb3e4506b.png",

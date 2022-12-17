@@ -24,7 +24,9 @@
         <td class="d-table-cell">Description</td>
         <td class="d-table-cell">Creation Date</td>
         <td class="d-table-cell">State</td>
-        <td class="d-table-cell">Controls</td>
+        <td class="d-table-cell">
+            <a href="/editor" class="btn btn-outline-success"><i class="bi bi-plus-lg"></i> Add</a>
+        </td>
     </tr>
 
     @foreach (Post post in Model.Posts.GetByCurrentPage())

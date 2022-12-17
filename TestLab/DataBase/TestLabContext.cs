@@ -10,6 +10,8 @@ namespace TestLab.DataBase
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }
+        public DbSet<Worker> Workers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

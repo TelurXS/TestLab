@@ -40,6 +40,16 @@ namespace TestLab.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetProjectById(int id)
+        {
+            Project project = Projects.GetOne(id);
+
+            Console.WriteLine(id + " - " + project.Name);
+
+            return Json(project);
+        }
+
+        [HttpGet]
         public IActionResult GetProjectsGroupedByDay() 
         {
             return Json(Projects.Collection.GroupBy(x => x.CreationDate.Day));
@@ -75,14 +85,6 @@ namespace TestLab.Controllers
             }
 
             return Json(posts);
-        }
-
-        [HttpGet]
-        public IActionResult GetProjectById(int id)
-        {
-            Project project = Projects.GetOne(id);
-
-            return Json(project);
         }
     }
 }

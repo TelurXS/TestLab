@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Workers";
+}
+@using TestLab.Entities.Projects;
+@model DashboardWorkersViewModel;
+
+<link href="~/css/modal-window.css" rel="stylesheet" />
+
+@await Component.InvokeAsync("DashboardSidebar", "Workers")
+@await Component.InvokeAsync("Message", Model)
+
+<h5 class="display-5">Posts</h5>
+<form asp-controller="dashboard" asp-action="workers" method="get">
+    <div class="row">
+        <div class="col-sm-1">@await Component.InvokeAsync("PaginationCountSelector", Model.Workers.ViewModel)</div>
+        <div class="col-sm-10"><input type="search" value="@Model.SearchPattern" name="search" placeholder="Search..." class="form-control mb-1" /></div>
+        <div class="col-sm-1"><button type="submit" class="btn btn-outline-success" id="apply">Apply</button></div>
+    </div>
+</form>
+
+<table class="table">
+    <tr class="d-table-row">
+        <td class="d-table-cell">Id</td>
+        <td class="d-table-cell">Profession</td>
+        <td class="d-table-cell">Account</td>
+        <td class="d-table-cell">
+            <button modal-open class="btn btn-outline-success"><i class="bi bi-plus-lg"></i> Add</button>
+        </td>
+    </tr>
+
+    @foreach (Worker worker in Model.Workers.GetByCurrentPage())
+    {
+        <tr class="d-table-row">
+            <td class="d-table-cell">@worker.Id</td>
+            <td class="d-table-cell">@worker.Profession</td>
+            <td class="d-table-cell">@worker.Account.Login</td>
+            <td class="d-table-cell">
+                <div class="d-flex">
+                    <form asp-controller="dashboard" asp-action="removeworker" method="post">
+                        <input type="hidden" name="id" value="@worker.Id" />
+                        <button class="btn btn-outline-danger m-1">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+@await Component.InvokeAsync("Pagination", Model.Workers.ViewModel)
+
+<div class="screen-fade modal-closed" modal-window>
+    <div class="container bg-light rounded p-3 mt-2">
+        <h5>Post</h5>
+
+        <form method="post" asp-controller="dashboard" asp-action="addworker" enctype="multipart/form-data">
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Profession</p></div>
+                <div class="col-sm-10">
+                    <input type="text" name="profession" class="text-muted mb-0 form-control">
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-sm-2"><p class="mb-0 mt-2">Account</p></div>
+                <div class="col-sm-10">
+                    <input type="text" list="accounts" name="login" class="form-control">
+                    <datalist id="accounts">
+                        @foreach (Account account in Model.Accounts)
+                        {
+                            <option value="@account.Login">@account.Name</option>
+                        }
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="m-3">
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-check-lg"></i> Save</button>
+                <a modal-close class="btn btn-outline-primary text-primary"><i class="bi bi-x-lg"></i> Close</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/modal-window.js" defer></script>
+<script src="~/js/dashboard/projects.js" defer></script>
