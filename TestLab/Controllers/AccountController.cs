@@ -22,13 +22,13 @@ namespace TestLab.Controllers
             Accounts = new Accounts(new TestLabContext());
             Projects = new Projects(new TestLabContext());
             Hasher = new Hasher();
-            Parser = new FileParser();
+            ImageParser = new UserImageFileParser();
         }
 
         public Accounts Accounts { get; set; }
         public Projects Projects { get; set; }
         public IHasher Hasher { get; set; }
-        public FileParser Parser { get; set; }
+        public IFileParser ImageParser { get; set; }
 
         [HttpGet]
         public IActionResult Login()
@@ -213,9 +213,10 @@ namespace TestLab.Controllers
 
             Account account = Accounts.GetBySession(User);
 
-            Parser.ReplaceUserImage(image, account.ProfileImage, out string name);
+            ImageParser.ReplaceOrIgnore(image, account.ProfileImage, out string filePath, 
+                Config.Accounts.DefaultProfileImage);
 
-            account.ProfileImage = name;
+            account.ProfileImage = filePath;
 
             Accounts.Save();
 

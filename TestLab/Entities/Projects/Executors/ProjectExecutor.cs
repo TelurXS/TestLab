@@ -1,6 +1,6 @@
 ﻿namespace TestLab.Entities.Projects.Executors
 {
-    public class ProjectExecutor : IProjectExecutor
+    public abstract class ProjectExecutor : IProjectExecutor
     {
         public ProjectExecutor(Project project)
         {
@@ -9,6 +9,6 @@
 
         public Project Project { get; set; }
 
-        public virtual bool Execute() { return false; }
+        public abstract bool Execute();
     }
 }

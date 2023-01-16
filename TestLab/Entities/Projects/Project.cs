@@ -8,6 +8,9 @@ namespace TestLab.Entities.Projects
     {
         PngToJpg,
         JpgToPng,
+        TextCapitalize,
+        TextToUpper,
+        TextToLower,
     }
 
     public enum ProjectState 
@@ -68,6 +71,9 @@ namespace TestLab.Entities.Projects
             {
                 case ProjectType.PngToJpg: return new PngToJpgExecutor(this);
                 case ProjectType.JpgToPng: return new JpgToPngExecutor(this);
+                case ProjectType.TextCapitalize: return new TextCapitalizeFormatExecutor(this);
+                case ProjectType.TextToUpper: return new TextToUpperFormatExecutor(this);
+                case ProjectType.TextToLower: return new TextToLowerFormatExecutor(this);
 
                 default: throw new Exception("No executor for this ProjectType");
             }
@@ -75,10 +81,11 @@ namespace TestLab.Entities.Projects
 
         public void DeleteFiles() 
         {
-            FileParser parser = new FileParser();
+            IFileParser resourceParser = new ProjectResourceFileParser();
+            IFileParser resultParser = new ProjectResultFileParser();
 
-            parser.Delete(Resource);
-            parser.DeleteOrIgnore(Result, "");
+            resourceParser.Delete(Resource);
+            resultParser.DeleteOrIgnore(Result, string.Empty);
         }
     }
 }

@@ -18,10 +18,12 @@ namespace TestLab.Controllers
 
             Accounts = new Accounts(context);
             Projects = new Projects(context);
+            ResourceParser = new ProjectResourceFileParser();
         }
 
         public Accounts Accounts { get; set; }
         public Projects Projects { get; set; }
+        public IFileParser ResourceParser { get; set; }
 
         [HttpGet]
         public IActionResult Index(int id)
@@ -87,7 +89,7 @@ namespace TestLab.Controllers
 
             if (resource is not null)
             {
-                bool resourceSaveResult = new FileParser().SaveProjectResource(resource, out resourceName);
+                bool resourceSaveResult = ResourceParser.Save(resource, out resourceName);
 
                 if (resourceSaveResult is false)
                 {

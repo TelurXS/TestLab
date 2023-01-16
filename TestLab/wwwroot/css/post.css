@@ -4,3 +4,18 @@ img
     max-width: 100%;
     height: auto;
 }
+
+pre:has(code) 
+{
+    background: hsla(0,0%,78%,.3);
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    color: #353535;
+    direction: ltr;
+    font-style: normal;
+    min-width: 200px;
+    padding: 1em;
+    tab-size: 4;
+    text-align: left;
+    white-space: pre-wrap;
+}

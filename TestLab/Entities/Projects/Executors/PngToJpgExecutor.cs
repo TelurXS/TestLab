@@ -8,30 +8,37 @@ namespace TestLab.Entities.Projects.Executors
 {
     public class PngToJpgExecutor : ProjectExecutor
     {
-        public PngToJpgExecutor(Project project) : base(project) { }
+        public PngToJpgExecutor(Project project) 
+            : base(project)
+        {
+            ResourceParser = new ProjectResourceFileParser();
+            ResultParser = new ProjectResultFileParser();
+        }
+
+        public IFileParser ResourceParser { get; private set; }
+        public IFileParser ResultParser { get; private set; }
 
         public override bool Execute()
         {
-            FileParser parser = new FileParser();
+            string file = ResourceParser.FullPathOf(Project.Resource);
 
-            if(parser.ExtensionOf(Project.Resource) == ".png") 
+            if (File.Exists(file) is false)
             {
-                string file = parser.FullPathOf(Project.Resource);
+                Project.State = ProjectState.Error;
+                Project.ResultType = ProjectResultType.Message;
+                Project.Result = "Something wrong";
+                return false;
+            }
 
-                if (File.Exists(file) is false) 
+            if (ResourceParser.ExtensionOf(Project.Resource) == ".png")
+            {
+                string path = ResultParser.GetFullLocalPath();
+                string name = ResultParser.GetUniqueFileName() + ".jpg";
+
+                using (Image png = Image.FromFile(file))
                 {
-                    Project.State = ProjectState.Error;
-                    Project.ResultType = ProjectResultType.Message;
-                    Project.Result = "Something wrong";
-                    return false;
+                    png.Save(path + name, ImageFormat.Png);
                 }
-
-                Image png = Image.FromFile(file);
-                string path = parser.GetDirectory() + "/wwwroot" + Config.Files.ProjectsResultsDirectory;
-                string name = parser.UniqueFileName() + ".jpg";
-
-                png.Save(path + name, ImageFormat.Jpeg);
-                png.Dispose();
 
                 Project.State = ProjectState.Completed;
                 Project.ResultType = ProjectResultType.Image;

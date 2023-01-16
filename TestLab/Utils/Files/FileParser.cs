@@ -1,27 +1,49 @@
 ﻿using Microsoft.AspNetCore.Http;
+using NuGet.DependencyResolver;
 using System;
 using System.IO;
-using TestLab.Entities;
 
 namespace TestLab.Utils.Files
 {
-    public sealed class FileParser
+    public abstract class FileParser : IFileParser
     {
-        public FileParser()
-        {
+        protected const string ROOT = "wwwroot";
 
+        public FileParser(string localDirectory)
+        {
+            LocalDirectory = localDirectory;
         }
 
-        public bool Save(IFormFile file, out string name, string midleDirectory)
-        {
-            name = "";
+        public string LocalDirectory { get; set; }
 
+        public virtual string ExtensionOf(string file)
+        {
+            return Path.GetExtension(file).ToLower();
+        }
+
+        public virtual string FullPathOf(string localPath)
+        {
+            return Path.Combine(GetDirectory(), ROOT + localPath);
+        }
+
+        public virtual string GetDirectory()
+        {
+            return Directory.GetCurrentDirectory();
+        }
+
+        public virtual string GetUniqueFileName()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        public virtual bool Save(IFormFile file, out string path) 
+        {
             if (file.Length > 0 && file.Length <= Config.Files.MaxFileLenght)
             {
-                string imageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                string localPath = midleDirectory + imageName;
-                string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + localPath);
-                name = localPath;
+                string fileName = GetUniqueFileName() + ExtensionOf(file.FileName);
+                string localPath = LocalDirectory + fileName;
+                string fullPath = FullPathOf(localPath);
+                path = localPath;
 
                 using (var stream = File.Create(fullPath))
                 {
@@ -31,66 +53,77 @@ namespace TestLab.Utils.Files
                 return true;
             }
 
+            path = string.Empty;
             return false;
         }
 
-        public bool Delete(string localFileName) 
+        public bool Save(string content, string extension, out string path)
         {
-            string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + localFileName);
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
+
+            if (bytes.Length > 0 && bytes.Length <= Config.Files.MaxFileLenght)
+            {
+                string fileName = GetUniqueFileName() + "." + extension;
+                string localPath = LocalDirectory + fileName;
+                string fullPath = FullPathOf(localPath);
+                path = localPath;
+
+                using (var stream = File.Create(fullPath))
+                {
+                    stream.Write(bytes, 0, bytes.Length);
+                }
+
+                return true;
+            }
+
+            path = string.Empty;
+            return false;
+        }
+
+        public virtual bool Delete(string localPath) 
+        {
+            string fullPath = FullPathOf(localPath);
 
             if (File.Exists(fullPath))
             {
                 File.Delete(fullPath);
-
                 return true;
             }
 
             return false;
         }
 
-        public bool DeleteOrIgnore(string localFileName, string ignoreName) 
+        public virtual bool DeleteOrIgnore(string localPath, string ignore)
         {
-            if (localFileName != ignoreName)
-                return Delete(localFileName);
+            if (localPath != ignore)
+                return Delete(localPath);
 
             return false;
         }
 
-        public bool Replace(IFormFile file, string previousName, out string newName, string ignoreName, string middleDirectory) 
+        public virtual bool Replace(IFormFile file, string oldPath, out string newPath) 
         {
-            if (previousName != ignoreName)
-                Delete(previousName);
-
-            return Save(file, out newName, middleDirectory);
+            Delete(oldPath);
+            return Save(file, out newPath);
         }
 
-        public bool SaveUserImage(IFormFile file, out string name) => Save(file, out name, Config.Files.UsersImageDirectory);
-        public bool SaveProjectResource(IFormFile file, out string name) => Save(file, out name, Config.Files.ProjectsResourcesDirectory);
-        public bool SaveProjectResult(IFormFile file, out string name) => Save(file, out name, Config.Files.ProjectsResultsDirectory);
-
-        public bool ReplaceUserImage(IFormFile file, string previousName, out string newName) =>
-            Replace(file, previousName, out newName, Config.Accounts.DefaultProfileImage, Config.Files.UsersImageDirectory);
-        public bool ReplacePostImage(IFormFile file, string previousName, out string newName) =>
-            Replace(file, previousName, out newName, Config.Posts.DefaultPostImage, Config.Files.PostsImageDirectory);
-
-        public string FullPathOf(string localFileName) 
+        public virtual bool ReplaceOrIgnore(IFormFile file, string oldPath, out string newPath, string ignore) 
         {
-            return Path.Combine(Directory.GetCurrentDirectory(), "wwwroot" + localFileName);
+            if (oldPath != ignore)
+                return Replace(file, oldPath, out newPath);
+
+            newPath = string.Empty;
+            return false;
         }
 
-        public string UniqueFileName() 
+        public virtual string Read(string localPath)
         {
-            return Guid.NewGuid().ToString();
+            return File.ReadAllText(FullPathOf(localPath));
         }
 
-        public string GetDirectory() 
+        public virtual string GetFullLocalPath()
         {
-            return Directory.GetCurrentDirectory();
-        }
-
-        public string ExtensionOf(string file) 
-        {
-            return Path.GetExtension(file).ToLower();
+            return Path.Combine(GetDirectory(), ROOT + LocalDirectory);
         }
     }
 }

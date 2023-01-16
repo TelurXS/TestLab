@@ -58,6 +58,9 @@ namespace TestLab
             {
                 { ProjectType.PngToJpg, "(Image Convertation) Png To Jpg" },
                 { ProjectType.JpgToPng, "(Image Convertation) Jpg To Png" },
+                { ProjectType.TextCapitalize, "(Txt Formatting) Format Text Capitalize Letter" },
+                { ProjectType.TextToUpper, "(Txt Formatting) Format Text Upper Case" },
+                { ProjectType.TextToLower, "(Txt Formatting) Format Text Lower Case" },
             };
         }
 

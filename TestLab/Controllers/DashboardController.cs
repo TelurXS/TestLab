@@ -23,14 +23,16 @@ namespace TestLab.Controllers
             PostsCollection = new Posts(context);
             ProjectsCollection = new Projects(context);
             WorkersCollection = new Workers(context);
-            Parser = new FileParser();
+            UserImageParser = new UserImageFileParser();
+            PostImageParser = new PostImageFileParser();
         }
 
         public Accounts AccountsCollection { get; set; }
         public Posts PostsCollection { get; set; }
         public Projects ProjectsCollection { get; set; }
         public Workers WorkersCollection { get; set; }
-        public FileParser Parser { get; set; }
+        public IFileParser UserImageParser { get; set; }
+        public IFileParser PostImageParser { get; set; }
 
         public bool IsAuthenticated => User.Identity.IsAuthenticated;
         public bool HavePermission(AccountState permission) => AccountsCollection.GetBySession(User).HavePermission(permission);
@@ -130,7 +132,8 @@ namespace TestLab.Controllers
 
                 if (profileImage is not null)
                 {
-                    bool saveResult = Parser.ReplaceUserImage(profileImage, account.ProfileImage, out string fileName);
+                    bool saveResult = UserImageParser.ReplaceOrIgnore(profileImage, account.ProfileImage, out string fileName, 
+                        Config.Accounts.DefaultProfileImage);
 
                     if (saveResult is true)
                     {
@@ -180,7 +183,7 @@ namespace TestLab.Controllers
                 {
                     new TextValidator(title, "Title").Min(3).Max(64),
                     new TextValidator(description, "Description").Max(128),
-                    new TextValidator(content, "Content").Max(512),
+                    new TextValidator(content, "Content").Max(1024),
                 };
 
                 foreach (TextValidator validator in validators)
@@ -194,7 +197,8 @@ namespace TestLab.Controllers
 
                 if (postImage is not null)
                 {
-                    bool saveResult = Parser.ReplacePostImage(postImage, post.Image, out string fileName);
+                    bool saveResult = PostImageParser.ReplaceOrIgnore(postImage, post.Image, out string fileName,
+                        Config.Posts.DefaultPostImage);
 
                     if (saveResult is true)
                     {
